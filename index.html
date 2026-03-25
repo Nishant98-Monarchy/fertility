@@ -201,14 +201,34 @@
     .bento-center-title { font-size: 28px; font-weight: 700; color: #fff; line-height: 1.2; }
     .bento-center-desc { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; }
 
-    .bento-closing {
-      display: flex; align-items: center; justify-content: center; gap: 32px;
-      background: #4A85C6; border-radius: 20px; padding: 48px;
+    /* ════════════════════════════════════════
+       VALUE PROPS BANNER (Edge-to-Edge)
+    ════════════════════════════════════════ */
+    .value-props-banner {
+      background: #FFF5F8;
       width: 100%;
+      padding: 80px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
     }
-    .bento-closing-text { font-size: 22px; font-weight: 700; color: rgba(255,255,255,0.35); }
-    .bento-closing-sep { width: 4px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 2px; }
-    .bento-closing-accent { font-size: 22px; font-weight: 700; color: #FF6196; }
+    .vpb-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .vpb-icon {
+      width: 32px;
+      height: 32px;
+      color: #FF6196;
+      flex-shrink: 0;
+    }
+    .vpb-text {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1A1A2E;
+    }
 
     /* ════════════════════════════════════════
        WHY THIS MATTERS
@@ -259,9 +279,9 @@
     .wc-layout-bottom .wc-text { margin-top: auto; padding-bottom: 40px; }
 
     .why-close {
-      background: rgba(255,97,150,0.1); border-radius: 24px;
-      margin: 0 80px 0; padding: 80px;
-      display: flex; flex-direction: column; align-items: center; gap: 20px;
+      background: transparent;
+      padding: 80px 20px 100px;
+      display: flex; flex-direction: column; align-items: center; gap: 28px;
     }
     .why-close-p {
       font-size: 20px; font-weight: 600; color: #1A1A2E;
@@ -533,8 +553,19 @@
         gap: 20px; 
       }
       .bento-card { height: auto; }
-      .bento-closing { flex-direction: column; gap: 16px; padding: 32px 20px; text-align: center; }
-      .bento-closing-sep { display: none; }
+
+      /* Value Props Banner Mobile */
+      .value-props-banner {
+        flex-direction: column;
+        padding: 60px 20px;
+        gap: 32px;
+        align-items: center;
+      }
+      .vpb-item {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
 
       /* Why Section */
       .why-h2 { font-size: 34px; }
@@ -543,7 +574,7 @@
       .wc-col, .wc-col:first-child, .wc-col:last-child { padding: 0; }
       .wc-layout-top .wc-text, .wc-layout-bottom .wc-text { margin-top: 0; margin-bottom: 12px; padding-bottom: 0; }
       .wc-layout-top .wc-img, .wc-layout-bottom .wc-img { margin-top: 0; margin-bottom: 0; }
-      .why-close { margin: 0 20px; padding: 40px 24px; border-radius: 20px; }
+      .why-close { padding: 60px 20px; }
       .why-close-p { font-size: 18px; }
 
       /* Who Section */
@@ -686,13 +717,36 @@
       <p class="bento-card-desc bento-card-desc-dk">Walk into every appointment prepared. Ask the right questions. Get the right answers.</p>
     </div>
   </div>
+</section>
 
-  <div class="bento-closing">
-    <span class="bento-closing-text">It's not guesswork.</span>
-    <span class="bento-closing-sep"></span>
-    <span class="bento-closing-text">It's not scattered information.</span>
-    <span class="bento-closing-sep"></span>
-    <span class="bento-closing-accent">It's structure.</span>
+<section class="value-props-banner">
+  <div class="vpb-item">
+    <svg class="vpb-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <circle cx="12" cy="12" r="6"/>
+      <circle cx="12" cy="12" r="2"/>
+    </svg>
+    <span class="vpb-text">It's not guesswork.</span>
+  </div>
+  
+  <div class="vpb-item">
+    <svg class="vpb-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+      <polyline points="14 2 14 8 20 8"/>
+      <line x1="16" y1="13" x2="8" y2="13"/>
+      <line x1="16" y1="17" x2="8" y2="17"/>
+      <polyline points="10 9 9 9 8 9"/>
+    </svg>
+    <span class="vpb-text">It's not scattered information.</span>
+  </div>
+  
+  <div class="vpb-item">
+    <svg class="vpb-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+      <polyline points="2 17 12 22 22 17"/>
+      <polyline points="2 12 12 17 22 12"/>
+    </svg>
+    <span class="vpb-text">It's structure.</span>
   </div>
 </section>
 
@@ -735,7 +789,7 @@
     </div>
   </div>
 
-  <div class="why-close" style="margin-bottom: 0; border-radius: 0;">
+  <div class="why-close">
     <p class="why-close-p">Wanted Fertility was built to reduce that risk. Not by replacing your doctor. By helping you stay informed, organised, and engaged.</p>
     <a href="#" class="why-close-btn">Join the Waitlist</a>
   </div>
