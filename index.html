@@ -252,7 +252,7 @@
       max-width: 1440px;
       margin: 0 auto;
       padding: 0 80px;
-      position: relative; min-height: 580px;
+      align-items: start;
       width: 100%;
     }
     
@@ -262,7 +262,7 @@
     
     .wc-col {
       display: flex; flex-direction: column;
-      justify-content: flex-start; position: relative;
+      position: relative;
     }
 
     .wc-text { display: flex; flex-direction: column; gap: 12px; }
@@ -272,11 +272,13 @@
       width: 100%; height: 220px; border-radius: 8px; object-fit: cover; display: block;
     }
 
-    .wc-layout-top .wc-text { margin-top: 40px; margin-bottom: 20px; }
-    .wc-layout-top .wc-img { margin-top: auto; }
-    .wc-layout-bottom { justify-content: flex-start; }
-    .wc-layout-bottom .wc-img { margin-top: 80px; margin-bottom: 20px; }
-    .wc-layout-bottom .wc-text { margin-top: auto; padding-bottom: 40px; }
+    /* Adjusted margins to remove the empty space */
+    .wc-layout-top .wc-text { margin-top: 0; margin-bottom: 24px; }
+    .wc-layout-top .wc-img { margin-top: 0; }
+    
+    .wc-layout-bottom { margin-top: 60px; } /* Keeps the staggered layout across columns */
+    .wc-layout-bottom .wc-img { margin-top: 0; margin-bottom: 24px; }
+    .wc-layout-bottom .wc-text { margin-top: 0; padding-bottom: 0; }
 
     .why-close {
       background: transparent;
@@ -400,12 +402,12 @@
       background: #FF6196; border-radius: 24px;
       padding: 64px; display: flex; gap: 40px; width: 100%;
       max-width: 1280px;
-      align-items: stretch; /* Ensures the left/right sections have the same height bounds */
+      align-items: stretch; 
     }
     .form-left {
       width: 480px; flex-shrink: 0;
       display: flex; flex-direction: column; 
-      justify-content: space-between; /* Pushes stats to bottom */
+      justify-content: space-between; 
     }
     .form-left-content {
       display: flex; flex-direction: column; gap: 28px;
@@ -428,7 +430,7 @@
     .form-stat {
       background: rgba(255,255,255,0.13); border-radius: 20px;
       padding: 36px 28px; display: flex; flex-direction: column; gap: 12px;
-      flex: 1; /* Makes cards stretch evenly to fill left side */
+      flex: 1; 
       justify-content: center;
     }
     .form-stat-big { 
@@ -588,6 +590,7 @@
       .wc-col, .wc-col:first-child, .wc-col:last-child { padding: 0; }
       .wc-layout-top .wc-text, .wc-layout-bottom .wc-text { margin-top: 0; margin-bottom: 12px; padding-bottom: 0; }
       .wc-layout-top .wc-img, .wc-layout-bottom .wc-img { margin-top: 0; margin-bottom: 0; }
+      .wc-layout-bottom { margin-top: 0; } /* Reset stagger for mobile */
       .why-close { padding: 60px 20px; }
       .why-close-p { font-size: 18px; }
 
