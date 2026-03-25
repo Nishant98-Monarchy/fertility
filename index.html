@@ -1,988 +1,387 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wanted Fertility — Landing Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; }
-    body { font-family: 'Open Sans', sans-serif; background: #fff; color: #1A1A2E; -webkit-font-smoothing: antialiased; }
-    a { text-decoration: none; color: inherit; }
-    img { display: block; max-width: 100%; }
 
-    /* ── UTILITIES ── */
-    .pill {
-      display: inline-flex; align-items: center; gap: 8px;
-      border-radius: 50px; padding: 6px 16px; font-size: 11px; font-weight: 700; letter-spacing: 3.5px;
-    }
-
-    /* ════════════════════════════════════════
-       NAVBAR
-    ════════════════════════════════════════ */
-    .navbar {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 80px; height: 80px; background: #fff;
-      border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 100;
-    }
-    .nav-logo { display: flex; align-items: center; gap: 2px; }
-    .nav-logo img { height: 32px; width: auto; } /* Added for logo image sizing */
-    .nav-right { display: flex; align-items: center; gap: 36px; }
-    .nav-link { font-size: 14px; color: #374151; }
-    .nav-cta {
-      background: #FF6196; color: #fff; border-radius: 50px;
-      padding: 12px 28px; font-size: 14px; font-weight: 700; cursor: pointer;
-    }
-
-    /* ════════════════════════════════════════
-       HERO
-    ════════════════════════════════════════ */
-    .hero {
-      display: flex; align-items: center; gap: 80px;
-      padding: 60px 80px 80px; background: #fff; max-width: 1440px; margin: 0 auto;
-    }
-    .hero-left { flex: 0 0 620px; display: flex; flex-direction: column; gap: 32px; }
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: #FFF0F4; border-radius: 50px; padding: 7px 18px;
-      font-size: 11px; font-weight: 700; color: #FF6196; letter-spacing: 3.5px;
-      width: fit-content;
-    }
-    .hero-dot { width: 7px; height: 7px; background: #FF6196; border-radius: 50%; flex-shrink: 0; }
-    .hero-h1 {
-      font-size: 58px; font-weight: 700; color: #1A1A2E;
-      line-height: 1.1; max-width: 620px;
-    }
-    .hero-sub {
-      font-size: 17px; color: #6B7280; line-height: 1.75; max-width: 580px;
-    }
-    .hero-cta-row { display: flex; align-items: center; gap: 20px; }
-    .hero-btn {
-      background: #FF6196; color: #fff; border-radius: 50px;
-      padding: 16px 40px; font-size: 16px; font-weight: 700; cursor: pointer; white-space: nowrap;
-    }
-    .hero-note { display: flex; flex-direction: column; gap: 3px; }
-    .hero-note-1 { font-size: 13px; font-weight: 600; color: #FF6196; }
-    .hero-note-2 { font-size: 13px; color: #9CA3AF; }
-    .hero-age-note {
-      background: #F9FAFB; border-radius: 12px; padding: 14px 20px;
-      display: flex; flex-direction: column; gap: 4px; width: fit-content;
-    }
-    .hero-age-note-1 { font-size: 13px; font-weight: 600; color: #374151; }
-    .hero-age-note-2 { font-size: 12px; color: #9CA3AF; }
-
-    .hero-right { flex: 0 0 580px; position: relative; height: 620px; }
-    .hero-img {
-      width: 540px; height: 580px; border-radius: 40px; object-fit: cover;
-      position: absolute; top: 0; left: 0;
-    }
-    .hero-float-1 {
-      position: absolute; bottom: 40px; right: -10px;
-      background: #fff; border-radius: 20px; padding: 0 20px;
-      display: flex; align-items: center; gap: 14px;
-      height: 90px; width: 240px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-    }
-    .hero-float-icon {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: #FFF0F4; display: flex; align-items: center; justify-content: center;
-      font-size: 22px; flex-shrink: 0;
-    }
-    .hero-float-text { display: flex; flex-direction: column; gap: 3px; }
-    .hero-float-t1 { font-size: 13px; font-weight: 700; color: #1A1A2E; }
-    .hero-float-t2 { font-size: 12px; color: #9CA3AF; }
-    .hero-float-2 {
-      position: absolute; top: 60px; left: -30px;
-      background: #FF6196; border-radius: 16px; padding: 0 18px;
-      display: flex; align-items: center; gap: 12px;
-      height: 70px; width: 200px;
-    }
-    .hero-float-2-icon { font-size: 18px; color: #fff; }
-    .hero-float-2-text { font-size: 12px; font-weight: 700; color: #fff; line-height: 1.4; max-width: 130px; }
-
-    /* ════════════════════════════════════════
-       VIDEO / FOUNDER STORY
-    ════════════════════════════════════════ */
-    .video-section {
-      background: #fff; padding: 100px 80px;
-      display: flex; flex-direction: column; align-items: center; gap: 48px;
-    }
-    .video-label { background: #EFF6FF; color: #4A85C6; }
-    .video-h2 {
-      font-size: 56px; font-weight: 700; color: #1A1A2E;
-      line-height: 1.1; text-align: center; max-width: 700px;
-    }
-    .video-embed {
-      position: relative; width: 900px; height: 506px; border-radius: 24px; overflow: hidden;
-    }
-    .video-bg { width: 100%; height: 100%; background: #1A1A2E; border-radius: 24px; }
-    .video-overlay {
-      position: absolute; inset: 0; border-radius: 24px;
-      background: linear-gradient(to bottom, rgba(15,23,42,0.3), rgba(15,23,42,0.8));
-    }
-    .video-play {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 72px; height: 72px; background: #FF6196; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px; color: #fff; cursor: pointer;
-    }
-    .video-quote-box {
-      background: #F9FAFB; border-radius: 24px; padding: 40px 60px;
-      display: flex; flex-direction: column; gap: 20px;
-      align-items: center; max-width: 820px; width: 100%;
-    }
-    .video-quote-accent { width: 40px; height: 4px; background: #4A85C6; border-radius: 2px; }
-    .video-quote-text {
-      font-size: 18px; color: #374151; line-height: 1.8;
-      text-align: center; font-style: normal;
-    }
-    .video-quote-author { font-size: 14px; font-weight: 600; color: #FF6196; text-align: center; }
-
-    /* ════════════════════════════════════════
-       HOW IT WORKS (BENTO)
-    ════════════════════════════════════════ */
-    .bento-section {
-      background: #F9FAFB; padding: 100px 80px;
-      display: flex; flex-direction: column; gap: 60px; align-items: center;
-    }
-    .bento-header { display: flex; flex-direction: column; align-items: center; gap: 16px; width: 100%; }
-    .bento-label { background: #FFF0F4; color: #FF6196; }
-    .bento-h2 {
-      font-size: 44px; font-weight: 700; color: #1A1A2E;
-      line-height: 1.15; text-align: center; max-width: 700px;
-    }
-    .bento-sub {
-      font-size: 18px; color: #6B7280; line-height: 1.6;
-      text-align: center; max-width: 580px;
-    }
-
-    /* Bento grid */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: 380px 480px 380px;
-      grid-template-rows: 220px 240px;
-      gap: 20px;
-      width: 1280px;
-    }
-    .bento-card {
-      border-radius: 20px; padding: 32px 28px;
-      display: flex; flex-direction: column; gap: 10px;
-    }
-    .bento-card-a { background: #fff; border: 1px solid #E8ECF2; grid-column: 1; grid-row: 1; }
-    .bento-card-b { background: #FF6196; grid-column: 1; grid-row: 2; }
-    .bento-card-center {
-      background: linear-gradient(145deg, #4A85C6 0%, #1A3A70 100%);
-      grid-column: 2; grid-row: 1 / 3;
-      border-radius: 20px; padding: 40px; display: flex; flex-direction: column; gap: 14px;
-    }
-    .bento-card-d { background: #FFF5F8; border: 1px solid #FFD6E5; grid-column: 3; grid-row: 1; }
-    .bento-card-e { background: #F0F6FF; border: 1px solid #C5DCFF; grid-column: 3; grid-row: 2; }
-
-    .bento-num {
-      display: inline-flex; align-items: center;
-      border-radius: 50px; padding: 5px 14px;
-      font-size: 12px; font-weight: 700; letter-spacing: 2px;
-      width: fit-content;
-    }
-    .num-pink { background: #FFF0F4; color: #FF6196; }
-    .num-pink-trans { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); }
-    .num-white-trans { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); }
-    .num-red-trans { background: rgba(255,97,150,0.12); color: #FF6196; }
-    .num-blue-trans { background: rgba(74,133,198,0.12); color: #4A85C6; }
-
-    .bento-card-title { font-size: 16px; font-weight: 700; line-height: 1.3; }
-    .bento-card-desc { font-size: 13px; line-height: 1.5; }
-    .bento-card-title-dk { color: #1A1A2E; }
-    .bento-card-title-lt { color: #fff; }
-    .bento-card-desc-dk { color: #6B7280; }
-    .bento-card-desc-lt { color: rgba(255,255,255,0.5); }
-    .bento-center-title { font-size: 28px; font-weight: 700; color: #fff; line-height: 1.2; }
-    .bento-center-desc { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; }
-
-    /* ════════════════════════════════════════
-       VALUE PROPS BANNER (Edge-to-Edge)
-    ════════════════════════════════════════ */
-    .value-props-banner {
-      background: #FFF5F8;
-      width: 100%;
-      padding: 80px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 60px;
-    }
-    .vpb-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .vpb-icon {
-      width: 32px;
-      height: 32px;
-      color: #FF6196;
-      flex-shrink: 0;
-    }
-    .vpb-text {
-      font-size: 22px;
-      font-weight: 700;
-      color: #1A1A2E;
-    }
-
-    /* ════════════════════════════════════════
-       WHY THIS MATTERS
-    ════════════════════════════════════════ */
-    .why-section { background: #FFF5F7; display: flex; flex-direction: column; }
-    .why-header {
-      display: flex; flex-direction: column; align-items: center; gap: 12px;
-      padding: 80px 160px 60px;
-    }
-    .why-label { background: #FF6196; color: #fff; }
-    .why-h2 {
-      font-size: 44px; font-weight: 700; color: #1A1A2E;
-      line-height: 1.15; text-align: center; max-width: 900px;
-    }
-    .why-sub { font-size: 18px; color: #666; line-height: 1.6; text-align: center; }
-
-    /* Timeline row */
-    .why-timeline {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 60px;
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 0 80px;
-      align-items: start;
-      width: 100%;
-    }
-    
-    .why-connector {
-      display: none;
-    }
-    
-    .wc-col {
-      display: flex; flex-direction: column;
-      position: relative;
-    }
-
-    .wc-text { display: flex; flex-direction: column; gap: 12px; }
-    .wc-h { font-size: 17px; font-weight: 700; color: #1A1A2E; line-height: 1.3; }
-    .wc-p { font-size: 14px; color: #666; line-height: 1.65; }
-    .wc-img {
-      width: 100%; height: 220px; border-radius: 8px; object-fit: cover; display: block;
-    }
-
-    .wc-layout-top .wc-text { margin-top: 0; margin-bottom: 24px; }
-    .wc-layout-top .wc-img { margin-top: 0; }
-    
-    .wc-layout-bottom { margin-top: 60px; }
-    .wc-layout-bottom .wc-img { margin-top: 0; margin-bottom: 24px; }
-    .wc-layout-bottom .wc-text { margin-top: 0; padding-bottom: 0; }
-
-    .why-close {
-      background: transparent;
-      padding: 80px 20px 100px;
-      display: flex; flex-direction: column; align-items: center; gap: 28px;
-    }
-    .why-close-p {
-      font-size: 20px; font-weight: 600; color: #1A1A2E;
-      line-height: 1.6; text-align: center; max-width: 900px;
-    }
-    .why-close-btn {
-      background: #FF6196; color: #fff; border-radius: 50px;
-      padding: 14px 36px; font-size: 15px; font-weight: 700; cursor: pointer;
-    }
-
-    /* ════════════════════════════════════════
-       WHO IT'S FOR
-    ════════════════════════════════════════ */
-    .who-section {
-      background: #fff; padding: 100px 80px;
-      display: flex; align-items: center; gap: 80px;
-    }
-    .who-img-block { position: relative; width: 560px; height: 600px; flex-shrink: 0; }
-    .who-img-grid {
-      position: absolute; inset: 0;
-      background: #F8F9FA; border-radius: 16px; overflow: hidden;
-      display: grid; grid-template-columns: 254px 254px; grid-template-rows: 274px 274px; gap: 12px;
-      padding: 12px;
-    }
-    .who-grid-img { border-radius: 10px; object-fit: cover; width: 100%; height: 100%; }
-    .who-badge {
-      position: absolute; top: 20px; right: -20px;
-      background: #4A85C6; border-radius: 14px; padding: 0 16px;
-      height: 60px; width: 200px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .who-badge-text {
-      font-size: 12px; font-weight: 700; color: #fff;
-      line-height: 1.4; text-align: center; max-width: 160px;
-    }
-
-    .who-right { flex: 1; display: flex; flex-direction: column; gap: 28px; }
-    .who-label { background: #EFF6FF; color: #4A85C6; }
-    .who-h2 {
-      font-size: 44px; font-weight: 700; color: #1A1A2E;
-      line-height: 1.15; max-width: 560px;
-    }
-    .who-intro { font-size: 17px; color: #6B7280; line-height: 1.65; max-width: 540px; }
-    .who-list { display: flex; flex-direction: column; gap: 12px; }
-    .who-item {
-      display: flex; align-items: center; gap: 16px;
-      background: #F9FAFB; border-radius: 14px; padding: 16px 20px;
-    }
-    .who-item-icon { width: 28px; height: 28px; flex-shrink: 0; }
-    .who-item-label { font-size: 15px; font-weight: 500; color: #1A1A2E; }
-    .who-ownership {
-      background: #FFF0F4; border-radius: 16px; padding: 20px 24px;
-      display: flex; flex-direction: column; gap: 6px;
-    }
-    .who-own-1 { font-size: 17px; font-weight: 700; color: #1A1A2E; }
-    .who-own-2 { font-size: 17px; font-weight: 700; color: #FF6196; }
-
-    /* ════════════════════════════════════════
-       FOUNDING MEMBER ACCESS
-    ════════════════════════════════════════ */
-    .founding-section {
-      background: #F9FAFB; padding: 100px 80px;
-      display: flex; flex-direction: column; align-items: center; gap: 56px;
-    }
-    .founding-header { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-    .founding-label { background: #FFF0F4; color: #FF6196; }
-    .founding-h2 {
-      font-size: 44px; font-weight: 700; color: #1A1A2E;
-      line-height: 1.15; text-align: center; max-width: 680px;
-    }
-    .founding-sub {
-      font-size: 17px; color: #6B7280; line-height: 1.6;
-      text-align: center; max-width: 540px;
-    }
-    .founding-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 20px; width: 100%;
-    }
-    .founding-card {
-      border-radius: 24px; padding: 36px;
-      display: flex; flex-direction: column; gap: 16px;
-    }
-    .fc-white { background: #fff; }
-    .fc-pink { background: #FF6196; }
-    .fc-blue { background: #4A85C6; }
-    .founding-icon-box {
-      width: 52px; height: 52px; border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px;
-    }
-    .fib-pink { background: #FFF0F4; }
-    .fib-trans { background: rgba(255,255,255,0.2); }
-    .founding-card-h { font-size: 17px; font-weight: 700; line-height: 1.3; }
-    .founding-card-p { font-size: 14px; line-height: 1.65; }
-    .founding-card-h-dk { color: #1A1A2E; }
-    .founding-card-h-lt { color: #fff; }
-    .founding-card-p-dk { color: #6B7280; }
-    .founding-card-p-lt { color: rgba(255,255,255,0.8); }
-    .founding-badge {
-      display: inline-flex; align-items: center;
-      border-radius: 50px; padding: 5px 14px;
-      font-size: 12px; font-weight: 700; width: fit-content; margin-top: auto;
-    }
-    .fb-pink-on-white { background: #FFF0F4; color: #FF6196; }
-    .fb-white-trans { background: rgba(255,255,255,0.2); color: #fff; }
-    .fb-blue-on-white { background: #EFF6FF; color: #4A85C6; }
-
-    /* ════════════════════════════════════════
-       WAITLIST FORM
-    ════════════════════════════════════════ */
-    .waitlist-section {
-      background: #fff; padding: 60px 80px;
-      display: flex; flex-direction: column; align-items: center;
-    }
-    .pink-card {
-      background: #FF6196; border-radius: 24px;
-      padding: 64px; display: flex; gap: 40px; width: 100%;
-      max-width: 1280px;
-      align-items: stretch; 
-    }
-    .form-left {
-      width: 480px; flex-shrink: 0;
-      display: flex; flex-direction: column; 
-      justify-content: space-between; 
-    }
-    .form-left-content {
-      display: flex; flex-direction: column; gap: 28px;
-    }
-    .form-label-pill {
-      display: inline-flex; align-items: center;
-      background: rgba(255,255,255,0.13); border-radius: 50px;
-      padding: 6px 16px; font-size: 11px; font-weight: 700;
-      color: #fff; letter-spacing: 3.5px; width: fit-content;
-    }
-    .form-left-h2 {
-      font-size: 44px; font-weight: 700; color: #fff;
-      line-height: 1.15;
-    }
-    .form-left-sub { font-size: 17px; color: #FFD6E7; line-height: 1.6; }
-    
-    .form-stats { 
-      display: flex; gap: 20px; 
-    }
-    .form-stat {
-      background: rgba(255,255,255,0.13); border-radius: 20px;
-      padding: 36px 28px; display: flex; flex-direction: column; gap: 12px;
-      flex: 1; 
-      justify-content: center;
-    }
-    .form-stat-big { 
-      font-size: 40px; font-weight: 700; color: #fff; line-height: 1; 
-      display: flex; align-items: center; height: 40px; 
-    }
-    .form-stat-label { 
-      font-size: 16px; font-weight: 500; color: #FFD6E7; 
-    }
-
-    .form-right { flex: 1; }
-    .form-card {
-      background: #fff; border-radius: 28px; padding: 48px;
-      display: flex; flex-direction: column; gap: 16px; height: 100%;
-    }
-    .form-row { display: flex; gap: 16px; }
-    .form-group { display: flex; flex-direction: column; gap: 8px; flex: 1; }
-    .form-label {
-      font-size: 11px; font-weight: 700; color: #1A1A2E;
-      letter-spacing: 1.5px; text-transform: uppercase;
-    }
-    .form-input {
-      height: 52px; border-radius: 12px; background: rgba(255,97,150,0.19);
-      border: none; padding: 0 16px; font-size: 14px; font-family: 'Open Sans', sans-serif;
-      color: #1A1A2E; outline: none; width: 100%;
-    }
-    .form-input::placeholder { color: rgba(255,255,255,0.3); }
-    .form-submit {
-      background: #FF6196; color: #1A1A2E; border-radius: 50px;
-      padding: 18px; font-size: 16px; font-weight: 700;
-      text-align: center; cursor: pointer; border: none;
-      font-family: 'Open Sans', sans-serif; width: 100%; margin-top: 8px;
-    }
-    .form-footnote { font-size: 12px; color: #666; text-align: center; margin-top: auto;}
-
-    /* ════════════════════════════════════════
-       TRANSPARENCY
-    ════════════════════════════════════════ */
-    .transparency-section {
-      background: #EEEEEE; padding: 60px 80px;
-      display: flex; flex-direction: column; align-items: center; gap: 20px;
-    }
-    .trans-lock { color: #6B7280; }
-    .trans-label { background: #F3F4F6; color: #6B7280; font-size: 11px; font-weight: 700; letter-spacing: 3.5px; }
-    .trans-box {
-      border-radius: 24px; padding: 36px 44px;
-      display: flex; flex-direction: column; gap: 16px;
-      align-items: center; max-width: 928px; width: 100%;
-    }
-    .trans-p1 { font-size: 15px; color: #6B7280; line-height: 1.75; text-align: center; }
-    .trans-p2 { font-size: 15px; font-weight: 600; color: #374151; line-height: 1.75; text-align: center; }
-
-    /* ════════════════════════════════════════
-       FINAL CTA
-    ════════════════════════════════════════ */
-    .final-cta {
-      background: #fff; padding: 120px 80px;
-      display: flex; flex-direction: column; align-items: center; gap: 36px;
-    }
-    .final-label { font-size: 11px; font-weight: 700; color: #FF6196; letter-spacing: 3.5px; }
-    .final-h2 {
-      font-size: 52px; font-weight: 700; color: #1A1A2E;
-      line-height: 1.1; text-align: center; max-width: 975px;
-    }
-    .final-sub {
-      font-size: 18px; color: #555; line-height: 1.6;
-      text-align: center; max-width: 727px;
-    }
-    .final-btn {
-      background: #FF6196; color: #fff; border-radius: 50px;
-      padding: 18px 52px; font-size: 17px; font-weight: 700; cursor: pointer;
-    }
-    .final-footnote { font-size: 14px; color: #999; text-align: center; max-width: 561px; }
-
-    /* ════════════════════════════════════════
-       FOOTER (UPDATED BACKGROUND)
-    ════════════════════════════════════════ */
-    .footer { background: #FFF5F8; }
-    .footer-top {
-      display: flex; justify-content: space-between; align-items: flex-start;
-      padding: 60px 80px; gap: 60px;
-    }
-    .footer-brand { display: flex; flex-direction: column; gap: 20px; max-width: 320px; }
-    .footer-logo img { height: 32px; width: auto; } /* Added for logo image sizing */
-    .footer-tagline { font-size: 14px; color: #666; line-height: 1.7; max-width: 280px; }
-    .footer-copy { font-size: 13px; color: #999; }
-    .footer-links { display: flex; gap: 80px; }
-    .footer-col { display: flex; flex-direction: column; gap: 16px; }
-    .footer-col-h { font-size: 11px; font-weight: 700; color: #374151; letter-spacing: 2px; }
-    .footer-col-link { font-size: 14px; color: #555; }
-    .footer-col-link-pink { font-size: 14px; font-weight: 600; color: #FF6196; }
-
-    /* ════════════════════════════════════════
-       SVG ICON HELPER
-    ════════════════════════════════════════ */
-    .icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    svg { display: block; }
-
-    /* ════════════════════════════════════════
-       📱 MOBILE RESPONSIVENESS
-    ════════════════════════════════════════ */
-    @media (max-width: 992px) {
-      /* General Padding adjustments */
-      .navbar { padding: 0 20px; }
-      .nav-link { display: none; } /* Hide text links, keep CTA */
-      
-      .hero, .video-section, .bento-section, .why-header, 
-      .who-section, .founding-section, .waitlist-section, 
-      .transparency-section, .final-cta, .footer-top {
-        padding: 40px 20px;
-      }
-
-      /* Hero Section */
-      .hero { flex-direction: column; gap: 40px; }
-      .hero-left, .hero-right { flex: 1 1 auto; width: 100%; height: auto; }
-      .hero-h1 { font-size: 38px; }
-      .hero-cta-row { flex-direction: column; align-items: flex-start; }
-      .hero-img { position: relative; width: 100%; height: auto; aspect-ratio: 4/5; border-radius: 20px; }
-      .hero-float-1 { bottom: 20px; right: 10px; width: auto; padding: 0 16px; height: 70px; }
-      .hero-float-2 { top: 20px; left: -10px; width: auto; padding: 0 16px; height: 60px; }
-
-      /* Video Section */
-      .video-h2 { font-size: 34px; }
-      .video-embed { width: 100%; height: auto; aspect-ratio: 16/9; }
-      .video-quote-box { padding: 24px; border-radius: 16px; }
-      .video-quote-text { font-size: 16px; }
-
-      /* Bento Grid */
-      .bento-h2 { font-size: 34px; }
-      .bento-grid { 
-        display: flex; 
-        flex-direction: column; 
-        width: 100%; 
-        gap: 20px; 
-      }
-      .bento-card { height: auto; }
-
-      /* Value Props Banner Mobile */
-      .value-props-banner {
-        flex-direction: column;
-        padding: 60px 20px;
-        gap: 32px;
-        align-items: center;
-      }
-      .vpb-item {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-      }
-
-      /* Why Section */
-      .why-h2 { font-size: 34px; }
-      .why-timeline { display: flex; flex-direction: column; gap: 40px; min-height: auto; padding: 0 20px; }
-      .why-connector { display: none; }
-      .wc-col, .wc-col:first-child, .wc-col:last-child { padding: 0; }
-      .wc-layout-top .wc-text, .wc-layout-bottom .wc-text { margin-top: 0; margin-bottom: 12px; padding-bottom: 0; }
-      .wc-layout-top .wc-img, .wc-layout-bottom .wc-img { margin-top: 0; margin-bottom: 0; }
-      .wc-layout-bottom { margin-top: 0; } /* Reset stagger for mobile */
-      .why-close { padding: 60px 20px; }
-      .why-close-p { font-size: 18px; }
-
-      /* Who Section */
-      .who-section { flex-direction: column; gap: 40px; }
-      .who-img-block { width: 100%; height: auto; aspect-ratio: 1; }
-      .who-img-grid { position: relative; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; padding: 8px; gap: 8px; }
-      .who-badge { top: -20px; right: 20px; }
-      .who-h2 { font-size: 34px; }
-
-      /* Founding Member */
-      .founding-h2 { font-size: 34px; }
-      .founding-grid { grid-template-columns: 1fr; }
-
-      /* Waitlist Form */
-      .pink-card { flex-direction: column; padding: 32px 20px; gap: 32px; border-radius: 20px; }
-      .form-left { width: 100%; gap: 32px; }
-      .form-left-h2 { font-size: 34px; }
-      .form-card { padding: 24px; }
-      .form-row { flex-direction: column; }
-      .form-stats { flex-direction: column; }
-
-      /* Transparency & Final CTA */
-      .trans-box { padding: 24px; }
-      .final-h2 { font-size: 36px; }
-
-      /* Footer */
-      .footer-top { flex-direction: column; gap: 40px; }
-      .footer-links { flex-direction: column; gap: 32px; }
-    }
-  </style>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wanted Fertility | Join the Waitlist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF6196",
+                        "primary-dark": "#E0487D",
+                        "secondary": "#4A85C6",
+                        "light-pink": "#F9A8AB",
+                        "surface": "#FFFFFF",
+                        "surface-dim": "#F9F6F7",
+                        "surface-accent": "#FFF0F4",
+                        "on-surface": "#1E1B1A",
+                        "on-surface-variant": "#584146",
+                        "outline": "#E9E1DF"
+                    },
+                    fontFamily: {
+                        "headline": ["'ITC Avant Garde Gothic Pro'", "sans-serif"],
+                        "body": ["-apple-system", "BlinkMacSystemFont", "'SF Pro'", "sans-serif"],
+                        "label": ["'Source Sans Pro'", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "8px",
+                        "lg": "16px",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }</script>
+<style>
+        @font-face {
+            font-family: 'ITC Avant Garde Gothic Pro';
+            src: url('https://fonts.cdnfonts.com/css/itc-avant-garde-gothic-pro') format('woff2');
+            font-weight: 700;
+        }
+        
+        body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro", sans-serif; }
+        h1, h2, h3, h4 { font-family: 'ITC Avant Garde Gothic Pro', sans-serif; font-weight: 700 !important; }
+        .font-label { font-family: 'Source Sans Pro', sans-serif; text-transform: uppercase; letter-spacing: 0.03em; font-weight: 700; }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #FF6196 0%, #FF8FB4 100%);
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
+        }
+    </style>
 </head>
-<body>
-
-<nav class="navbar">
-  <div class="nav-logo">
-    <img src="YOUR_LOGO_NAME.png" alt="Wanted Fertility" />
-  </div>
-  <div class="nav-right">
-    <a href="#" class="nav-link">Our Story</a>
-    <a href="#" class="nav-link">How It Works</a>
-    <a href="#" class="nav-link">Who It's For</a>
-    <a href="#" class="nav-cta">Join the Waitlist</a>
-  </div>
+<body class="bg-surface text-on-surface">
+<!-- Navigation -->
+<nav class="sticky top-0 w-full z-50 bg-white/90 backdrop-blur-sm border-b border-outline">
+<div class="flex justify-between items-center px-[10%] py-4">
+<div class="h-8">
+<img alt="wanted.fertility" class="h-full object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ugu_idt3pRSOUWc43BWqoq87l2IpxZCvAw09ehjeBxLlkxKsKi6frBiDRwP-t-wllAHy8YhbJYE4Z-yk_tWe7cAkQ2-5VrQ25HC-zOrq_SDLbB1y_0p1VaePmkYK4JjGJgublmfg7kDc37FVTa1rx4455oLfIGqGLEBV3SKLkYj5T94Vqr67qVHjszs23v9bofv_JjmlUu-0_vmid7Tnb4xxc3FKgQcmbKb8izs_BJv8Hw2mNeMcR09-Mgmmsi_vQtjX26o_YP3zg" style=""/>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label text-xs text-on-surface-variant hover:text-primary transition-colors" href="#" style="">Our Story</a>
+<a class="font-label text-xs text-on-surface-variant hover:text-primary transition-colors" href="#" style="">How It Works</a>
+<a class="font-label text-xs text-on-surface-variant hover:text-primary transition-colors" href="#" style="">Who It's For</a>
+<button class="bg-primary text-white font-label text-[10px] px-6 py-2.5 rounded-full hover:bg-primary-dark transition-all" style="">Join the Waitlist</button>
+</div>
+</div>
 </nav>
-
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">
-      <div class="hero-dot"></div>
-      WAITLIST NOW OPEN
-    </div>
-    <h1 class="hero-h1">I Lost Four Pregnancies Because One Thing Was Missed.</h1>
-    <p class="hero-sub">When I finally found a specialist who took a structured, protocol-based approach everything changed. I got pregnant at 42. I had my daughter.</p>
-    <div class="hero-cta-row">
-      <a href="#" class="hero-btn">Join the Waitlist</a>
-      <div class="hero-note">
-        <span class="hero-note-1">✦ 50% off for the life of your subscription</span>
-        <span class="hero-note-2">when the app launches</span>
-      </div>
-    </div>
-    <div class="hero-age-note">
-      <span class="hero-age-note-1">Currently accepting women ages 42 and under</span>
-      <span class="hero-age-note-2">Separate waitlist available for women 43+</span>
-    </div>
-  </div>
-  <div class="hero-right">
-    
-    <img class="hero-img" src="YOUR_HERO_IMAGE_NAME.jpg" alt="Founder" />
-
-    <div class="hero-float-1">
-      <div class="hero-float-icon">🌸</div>
-      <div class="hero-float-text">
-        <span class="hero-float-t1">Protocol-Based</span>
-        <span class="hero-float-t2">Evidence-informed</span>
-      </div>
-    </div>
-    <div class="hero-float-2">
-      <span class="hero-float-2-icon">✦</span>
-      <span class="hero-float-2-text">Founding Member Access</span>
-    </div>
-  </div>
+<main>
+<!-- Section 1: Hero -->
+<section class="px-[10%] py-20 bg-surface flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
+<div class="w-full md:w-1/2 z-10">
+<span class="inline-block bg-surface-accent text-primary font-label text-[10px] px-3 py-1 mb-6" style="">WAITLIST NOW OPEN</span>
+<h1 class="text-4xl md:text-5xl lg:text-6xl text-on-surface leading-[1.05] mb-6" style="">
+                I Lost Four Pregnancies Because One Thing Was Missed.
+            </h1>
+<p class="text-lg text-on-surface-variant mb-10 max-w-lg leading-relaxed" style="">
+                When I finally found a specialist who took a structured, protocol-based approach everything changed. I got pregnant at 42. I had my daughter.
+            </p>
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8">
+<button class="bg-primary text-white font-label text-xs px-10 py-4 rounded-full hover:scale-[1.02] transition-transform shadow-lg shadow-primary/20" style="">Join the Waitlist</button>
+<p class="text-[10px] text-primary font-medium leading-tight" style="">50% off for the life of your subscription<br/>when the app launches.</p>
+</div>
+<div class="pt-6 border-t border-outline max-w-xs">
+<p class="text-[10px] text-on-surface-variant font-medium" style="">Currently accepting women ages 42 and under</p>
+<p class="text-[9px] text-on-surface-variant opacity-60" style="">Separate waitlist available for women 43+</p>
+</div>
+</div>
+<div class="w-full md:w-1/2 relative">
+<div class="relative aspect-[4/5] rounded-lg overflow-hidden shadow-2xl">
+<img alt="Woman in soft clinical setting" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZZSJZtLjLICYHghPJ-FHrxhNoSr0GhcjLIxBk2e696EuVtIJNDhgMSVj5vMR_bhafMXKEdOIbIWdzXXPZvgJySqxyEGNxg-eN8fRpAllhxKhPGQaHvmBhaCJA20GGrVdDtcm3tYiDf-VGZL0eeEQUx5oW7GYaanosJ5NV9oHy-UV727SDL51WfL8kyvY-oRq5jvudvRqTIAYWzSNPE94M8RFpzsuuPhWIx337RBXOwFhuld9yXySSNwO1l42CstioltjiliWHE4sL" style=""/>
+<div class="absolute top-8 left-8 bg-primary text-white px-4 py-2 rounded text-[10px] font-label shadow-xl" style="">
+                    Founding Member<br/>Access
+                </div>
+<div class="absolute bottom-12 right-8 bg-white/95 p-4 rounded shadow-2xl border border-outline/50 backdrop-blur-md">
+<p class="text-[10px] font-bold text-on-surface uppercase tracking-wider" style="">Protocol-Based</p>
+<p class="text-[9px] text-on-surface-variant italic" style="">patience informed</p>
+<div class="mt-2 w-full h-1 bg-on-surface rounded-full"></div>
+</div>
+</div>
+</div>
 </section>
-
-<section class="video-section">
-  <span class="pill video-label">FOUNDER'S STORY</span>
-  <h2 class="video-h2">Why I Built This</h2>
-  <div class="video-embed">
-    <div class="video-bg"></div>
-    <div class="video-overlay"></div>
-    <div class="video-play">▶</div>
-  </div>
-  <div class="video-quote-box">
-    <div class="video-quote-accent"></div>
-    <p class="video-quote-text">
-      "If I had gone straight to IVF like everyone recommended, I likely would have experienced more loss.
-      IVF is powerful, and this app will flag when it's appropriate.<br><br>
-      But there are often earlier steps that can be missed. For me, IVF wasn't the answer.
-      Finding what was overlooked was."
-    </p>
-    <span class="video-quote-author">Nicole, Founder of Wanted Fertility</span>
-  </div>
+<!-- Section 2: Video -->
+<section class="px-[10%] py-24 bg-surface-dim text-center">
+<span class="font-label text-[10px] text-secondary tracking-[0.2em] mb-4 block" style="">FOUNDER'S STORY</span>
+<h2 class="text-3xl md:text-4xl mb-12" style="">Why I Built This</h2>
+<div class="max-w-4xl mx-auto relative group">
+<div class="aspect-video bg-[#12141D] rounded-lg overflow-hidden flex items-center justify-center relative">
+<div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="mt-16 max-w-2xl mx-auto bg-white p-12 rounded-lg editorial-shadow relative">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-1 bg-secondary rounded-full"></div>
+<p class="text-lg text-on-surface-variant italic leading-relaxed mb-6" style="">
+                "If I had gone straight to IVF like everyone recommended, I likely would have experienced more loss. IVF is powerful, and this app will flag when it's appropriate. But there are often earlier steps that can be missed. For me, IVF wasn't the answer. Finding what was overlooked was."
+            </p>
+<p class="font-label text-[10px] text-primary" style="">Nicole, Founder of Wanted Fertility</p>
+</div>
 </section>
-
-<section class="bento-section">
-  <div class="bento-header">
-    <span class="pill bento-label">HOW IT WORKS</span>
-    <h2 class="bento-h2">A Structured Way to Understand<br>What Comes Next</h2>
-    <p class="bento-sub">Wanted Fertility translates established medical protocols into a clear, step-by-step system.</p>
-  </div>
-
-  <div class="bento-grid">
-    <div class="bento-card bento-card-a">
-      <span class="bento-num num-pink">01</span>
-      <p class="bento-card-title bento-card-title-dk">Input your medical history, labs &amp; cycle data</p>
-      <p class="bento-card-desc bento-card-desc-dk">Build a complete picture of your fertility journey in one place</p>
-    </div>
-
-    <div class="bento-card bento-card-b">
-      <span class="bento-num num-pink-trans">03</span>
-      <p class="bento-card-title bento-card-title-lt">Move through a protocol-based sequence</p>
-      <p class="bento-card-desc bento-card-desc-lt">Evidence-informed steps in the right order, not scattered information you have to piece together</p>
-    </div>
-
-    <div class="bento-card-center">
-      <span class="bento-num num-white-trans">02</span>
-      <p class="bento-center-title">Track your cycles in a structured way</p>
-      <p class="bento-center-desc">Consistent, structured data creates clarity. Know your body. Move forward with confidence.</p>
-    </div>
-
-    <div class="bento-card bento-card-d">
-      <span class="bento-num num-red-trans">04</span>
-      <p class="bento-card-title bento-card-title-dk">Identify potential gaps or missed considerations</p>
-      <p class="bento-card-desc bento-card-desc-dk">Surface what might be overlooked. The details that can change outcomes.</p>
-    </div>
-
-    <div class="bento-card bento-card-e">
-      <span class="bento-num num-blue-trans">05</span>
-      <p class="bento-card-title bento-card-title-dk">Understand what to explore next with your provider</p>
-      <p class="bento-card-desc bento-card-desc-dk">Walk into every appointment prepared. Ask the right questions. Get the right answers.</p>
-    </div>
-  </div>
+<!-- Section 3: Feature Grid - A Structured Way -->
+<section class="px-[10%] py-24 bg-surface-dim">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<p class="text-on-surface-variant text-sm mb-4" style="">Wanted Fertility translates established medical protocols into a clear, step-by-step system.</p>
+<h2 class="text-3xl md:text-4xl" style="">A Structured Way to Understand What Comes Next</h2>
+</div>
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+<div class="flex flex-col gap-6">
+<div class="bg-white border border-[#FFF0F4] p-8 rounded-lg h-full flex flex-col">
+<span class="inline-block bg-[#FFF0F4] text-primary text-[10px] font-bold px-3 py-1 rounded-full w-fit mb-6" style="">01</span>
+<h3 class="text-lg font-bold mb-3 leading-tight" style="">Input your medical history, labs &amp; cycle data</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed" style="">Build a complete picture of your fertility journey in one place.</p>
+</div>
+<div class="bg-primary text-white p-8 rounded-lg h-full flex flex-col">
+<span class="inline-block bg-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full w-fit mb-6" style="">03</span>
+<h3 class="text-lg font-bold mb-3 leading-tight" style="">Move through a protocol-based sequence</h3>
+<p class="text-xs opacity-90 leading-relaxed" style="">Evidence-informed steps in the right order, not scattered information you have to piece together.</p>
+</div>
+</div>
+<div class="bg-secondary text-white p-10 rounded-lg flex flex-col justify-center min-h-[500px] shadow-2xl shadow-blue-900/20">
+<span class="inline-block bg-white/10 text-white text-[10px] font-bold px-3 py-1 rounded-full w-fit mb-8" style="">02</span>
+<h3 class="text-3xl font-bold mb-6 leading-tight" style="">Track your cycles in a structured way</h3>
+<p class="text-sm opacity-90 leading-relaxed mb-4" style="">Consistent, structured data creates clarity. Know your body. Move forward with confidence.</p>
+</div>
+<div class="flex flex-col gap-6">
+<div class="bg-[#FFF5F7] border border-[#FFE0E9] p-8 rounded-lg h-full flex flex-col">
+<span class="inline-block bg-[#FFE0E9] text-primary text-[10px] font-bold px-3 py-1 rounded-full w-fit mb-6" style="">04</span>
+<h3 class="text-lg font-bold mb-3 leading-tight" style="">Identify potential gaps or missed considerations</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed" style="">Surface what might be overlooked. The details that can change outcomes.</p>
+</div>
+<div class="bg-[#F0F7FF] p-8 rounded-lg h-full flex flex-col border border-[#DEEFFF]">
+<span class="inline-block bg-[#DEEFFF] text-[#4A85C6] text-[10px] font-bold px-3 py-1 rounded-full w-fit mb-6" style="">05</span>
+<h3 class="text-lg font-bold mb-3 leading-tight" style="">Understand what to explore next with your provider</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed" style="">Walk into every appointment prepared. Ask the right questions. Get the right answers.</p>
+</div>
+</div>
+</div>
+<div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 items-start text-center">
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl">check_circle</span>
+<span class="text-black font-label text-sm tracking-widest uppercase">It's not guesswork.</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl">hub</span>
+<span class="text-black font-label text-sm tracking-widest uppercase">It's not scattered information.</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl">grid_view</span>
+<span class="text-black font-label text-sm tracking-widest uppercase font-bold">It's structure.</span>
+</div>
+</div>
+</div>
 </section>
-
-<section class="value-props-banner">
-  <div class="vpb-item">
-    <svg class="vpb-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="10"/>
-      <circle cx="12" cy="12" r="6"/>
-      <circle cx="12" cy="12" r="2"/>
-    </svg>
-    <span class="vpb-text">It's not guesswork.</span>
-  </div>
-  
-  <div class="vpb-item">
-    <svg class="vpb-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-      <polyline points="14 2 14 8 20 8"/>
-      <line x1="16" y1="13" x2="8" y2="13"/>
-      <line x1="16" y1="17" x2="8" y2="17"/>
-      <polyline points="10 9 9 9 8 9"/>
-    </svg>
-    <span class="vpb-text">It's not scattered information.</span>
-  </div>
-  
-  <div class="vpb-item">
-    <svg class="vpb-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-      <polyline points="2 17 12 22 22 17"/>
-      <polyline points="2 12 12 17 22 12"/>
-    </svg>
-    <span class="vpb-text">It's structure.</span>
-  </div>
+<!-- Section 4: The Philosophy (Because Fertility Care...) -->
+<section class="px-[10%] py-24 bg-surface-accent/30">
+<div class="flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/2">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-4">
+<img alt="Medical glass vials" class="rounded-lg h-64 w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_qmitmwPgmmRsXl3AemF_2G52JVIB_-FDaKWedLXYiT61g7V_Hk2F8x-dNy9WxTnr2al9Wj9IAwopb3N5yn27T_Bolyj9gpV79r6LgorY7dqHFcKQ-vjRWnvBtosI4vTHDhg0qCM4oO7-uPcszFAKfF-aIj2UH-J2iFQkUc9kgOn50sgtu8Bf3mU5AnmrFz1UqtRuoEe3wO8ixrfLOt1tpJGNQBd94fXZhRdftOdR9w-QA8poE_ysnB1uKTtYneVdKbR6iJAb7A9q" style=""/>
+<img alt="Laboratory setting" class="rounded-lg h-80 w-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB87vCO6jj4UgkZliMiX6R2jmGy_yFGDNMrkG6e4072wpeE7TV6qUBwM_gd4Cl3KJ87AYJ1jXab0s8-uinDHgWN1ySrY0CEBRYOAlSu9XKB2SbjdsnnD2Gh3oE-6nGH4e40GFtPQH4N6AV9L2lSNb7HEQrwivx8CjgdR9Fz6Z2HeAYUY-AD_TZjgFan9xRYSKzIOqEnAS0pHdVcnkRTxdkdSA3tdcXXDTmFHCjdjSPhmxABsmoHGeShYs_xd4llRg8IfbyJjlZJWK74" style=""/>
+</div>
+<div class="pt-12 space-y-4">
+<div class="bg-secondary p-8 rounded-lg text-white">
+<p class="font-label text-[10px] mb-4" style="">CLINICAL PRECISION</p>
+<img alt="Medical professional consultation" class="rounded-lg h-32 w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3DGVaRLrfFUiP9VVExitrDv4bYWxlTg4EZuKAHfrN4KY4VyM9OCWnABCkAGtMyFQ84NPkVcCfBH8oE6FcFz2v5-LzZ_5pcTxpsiaSH80G_N9Tu-P4O-_pxbN_dEF4j84zXU4-6tSlvQtHGk-Glu1WEoutwyzSTnjJ3JzRlsBSkpgCvujAbK_YAW6AWdcRNLkI6IoE6-7KiT-n_VfnUcPK568VccCgYZRU9OFOnEZRzWyQdVvYkYkevKmcWN1CGp1TLilG6l7BqrdD" style=""/>
+</div>
+<img alt="Medical equipment close-up" class="rounded-lg h-64 w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9y7kL06MM985mdZ52djdEsJ5REXTd5jMZ2kUoBGow1eaSKnKYkQBi3-1aVRBLFpNWnbm9usP_EEhJ40tw-mSYuj80m0s82vvFRcaNx7NZ0SAnkr8VKbYITfH5ICDiWzS-AlidI3cq0i4sfoKPgfC_Fpd2f50YeRchb3opz-C-cmvP7al09JPxujnGloxQrPh0gFcteW1QqePPj4O4xKTtEtEEjN7vQtO2uIpqlGIUudkniI3CKYlwNwJvf1KVL2OnO8E2V23s4kQo" style=""/>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2">
+<span class="font-label text-[10px] text-primary tracking-[0.2em] mb-4 block" style="">THE REALITY</span>
+<h2 class="text-4xl mb-6" style="">Because Fertility Care Isn’t Always Linear</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-10" style="">
+                    Most women aren't lacking effort — they're lacking visibility. Wanted Fertility was built to reduce that risk. Not by replacing your doctor. By helping you stay informed, organised, and engaged.
+                </p>
+<button class="bg-primary text-white font-label text-[10px] px-8 py-4 rounded-full hover:bg-primary-dark transition-all" style="">Join the Waitlist</button>
+</div>
+</div>
 </section>
-
-<section class="why-section">
-  <div class="why-header">
-    <span class="pill why-label">THE REALITY</span>
-    <h2 class="why-h2">Because Fertility Care<br>Isn't Always Linear</h2>
-    <p class="why-sub">Most women aren't lacking effort — they're lacking visibility.</p>
-  </div>
-
-  <div class="why-timeline">
-    <div class="wc-col wc-layout-top">
-      <div class="wc-text">
-        <p class="wc-h">Information Lives Everywhere</p>
-        <p class="wc-p">Lab results in one portal. Appointment notes in another. No single view of your complete picture.</p>
-      </div>
-      <img class="wc-img"
-        src="https://images.unsplash.com/photo-1758273240799-6c2b0578fe2c?w=800&q=80"
-        alt="Information fragmentation" />
-    </div>
-
-    <div class="wc-col wc-layout-bottom">
-      <img class="wc-img"
-        src="https://images.unsplash.com/photo-1613298262171-8fb6107ff97b?w=800&q=80"
-        alt="Appointments spaced out" />
-      <div class="wc-text">
-        <p class="wc-h">Appointments Are Spaced Out</p>
-        <p class="wc-p">Decisions often get made without the full picture. Critical time passes between consultations. Details get lost.</p>
-      </div>
-    </div>
-
-    <div class="wc-col wc-layout-top">
-      <div class="wc-text">
-        <p class="wc-h">Critical Factors Get Missed</p>
-        <p class="wc-p">Small but significant variables can be overlooked when there's no structured framework guiding the process.</p>
-      </div>
-      <img class="wc-img"
-        src="https://images.unsplash.com/photo-1662869633285-13fe05236a72?w=800&q=80"
-        alt="Critical factors missed" />
-    </div>
-  </div>
-
-  <div class="why-close">
-    <p class="why-close-p">Wanted Fertility was built to reduce that risk. Not by replacing your doctor. By helping you stay informed, organised, and engaged.</p>
-    <a href="#" class="why-close-btn">Join the Waitlist</a>
-  </div>
+<!-- Section 5: For Women Who Want to Be Involved -->
+<section class="px-[10%] py-24 bg-surface">
+<div class="flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/2 order-2 md:order-1">
+<span class="font-label text-[10px] text-secondary tracking-[0.2em] mb-4 block" style="">IS THIS FOR YOU?</span>
+<h2 class="text-4xl mb-8" style="">For Women Who Want to Be Involved</h2>
+<p class="text-on-surface-variant mb-10" style="">This is for women who refuse to be passive participants in their own fertility journey.</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 p-4 bg-surface-dim rounded-lg" style="">
+<span class="material-symbols-outlined text-primary text-xl" style="">visibility</span>
+<span class="text-xs font-medium text-on-surface-variant" style="">Want to understand their own case more deeply</span>
+</li>
+<li class="flex items-center gap-4 p-4 bg-surface-dim rounded-lg" style="">
+<span class="material-symbols-outlined text-primary text-xl" style="">database</span>
+<span class="text-xs font-medium text-on-surface-variant" style="">Don't want to rely on fragmented information</span>
+</li>
+<li class="flex items-center gap-4 p-4 bg-surface-dim rounded-lg" style="">
+<span class="material-symbols-outlined text-primary text-xl" style="">verified</span>
+<span class="text-xs font-medium text-on-surface-variant" style="">Want to reduce avoidable blind spots</span>
+</li>
+<li class="flex items-center gap-4 p-4 bg-surface-dim rounded-lg" style="">
+<span class="material-symbols-outlined text-primary text-xl" style="">lightbulb</span>
+<span class="text-xs font-medium text-on-surface-variant" style="">Prefer clarity over uncertainty</span>
+</li>
+<li class="flex items-center gap-4 p-4 bg-surface-dim rounded-lg" style="">
+<span class="material-symbols-outlined text-primary text-xl" style="">favorite</span>
+<span class="text-xs font-medium text-on-surface-variant" style="">Want to actively participate in decisions</span>
+</li>
+</ul>
+<div class="mt-8 p-6 bg-surface-accent rounded-lg border-l-4 border-primary">
+<p class="text-xs text-primary font-bold" style="">Being informed isn't distrust. It's ownership.</p>
+</div>
+</div>
+<div class="w-full md:w-1/2 order-1 md:order-2">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-4">
+<img alt="Woman looking thoughtful" class="rounded-lg h-64 w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg2uoX2_Mxw2ZKp1V74W1k609OVFYR8LjW_0XvZCRyZ01AjNFPUBqOXv6GW1yags1wjp0pDUT6FPI0yxQ4bdQGJdvB1-cYfL-l9MYhdBFXhx0Rktt3mjFtpU6DVT61w2HNlgMqIy0yaGyXvAUFOKZTrFx5XroESh3LQEmzLbS-D3TneIaO-IDlB0sPKJNkRCa1Dm7gMgDSjabv_DIx1pFiE0fwWGoWQG19JuHCkZd9yU8XyqA6Z7HD33eahfa_hXo8bzjXaTXTEdjP" style=""/>
+<img alt="Consultation" class="rounded-lg h-80 w-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu5eRN22gZ4LOYuoEXHHpm366woTwJF1ULSBKEuiyT5CKEr5fr3Cjs56mgjyRd-2Cd6Y9y7InC-v0NauapG5Qqeu1kC5Q2Xdv-TNpxJrG1BRkGw3-GMGj2p68enPOkLMOxEJD-q58AQdGZAPtqaRrbZkguoNUd7t29B8KH4qGaqf75ab9jR5xhaxZ3K6MW9-YOVtXpZ1oCsa8KYvp6HN3Bm_f4DgTCy1ruY0rSaRzo6iHhDzVrOSKnTJ0uBsW6MlRrqwz0VoaNLe34" style=""/>
+</div>
+<div class="pt-12 space-y-4">
+<div class="bg-primary p-8 rounded-lg text-white">
+<p class="font-label text-[10px] mb-4" style="">FOR WOMEN WHO WANT MORE</p>
+<img alt="Pregnant woman" class="rounded-lg h-32 w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQyxOwTtghCJtncAxytq1BfPWnVh-PK9ZXtLBM8z0y0GM40vFZaITkXLYfWm7uKfPe32Fx3GqXo7TO8EBtrX8dbFVWN80HD5rg0-RrXWHOR4UnJwZlRp7yY3Ac3jDvamhvVzE7ooc2Vhyv_6OO2vReWTgHQdP_acCPrvClbcjNKq8FTRQLT4-IsKKU1eleZZpZW1lT0Bhs-kM46B7t9jvGq_byLsuVFb4vfiPAl2h7W0tegRbmPOAqFHeLHzOcrBu-z18RVZiS3z4a" style=""/>
+</div>
+<img alt="Woman in peaceful natural setting" class="rounded-lg h-64 w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWbCq4wx9LZDiY98IBzTbBszFchqB8hjZlxAisBf05-wGwXna3bOmaPEsZaTznho3_dSW0jit9QCl543mt_lwumrlzFj_Y_eLbiQrne5n0uKIRorEgsiCNPk4ZqMyO6kK5eRMK2cuUpMo8X7NboqPnvhqKCcch8HljeSCfOkkTPbUrHZhb54rhjcNcu6xB2XbFfHcGkxPTewxda27TA68lahJwFCZZ1IuxpxkdnQPLiSd1cANNmiZ0zbDE55BZFnF70gmZCn1uVquq" style=""/>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<section class="who-section">
-  <div class="who-img-block">
-    <div class="who-img-grid">
-      <img class="who-grid-img" src="https://images.unsplash.com/photo-1572973973902-c7249914ebaa?w=600&q=80" alt="" />
-      <img class="who-grid-img" src="https://images.unsplash.com/photo-1758691463084-17ed846d4a50?w=600&q=80" alt="" />
-      <img class="who-grid-img" src="https://images.unsplash.com/photo-1751984034233-eb9d2c0937c2?w=600&q=80" alt="" />
-      <img class="who-grid-img" src="https://images.unsplash.com/photo-1758466872243-496929504a0b?w=600&q=80" alt="" />
-    </div>
-    <div class="who-badge">
-      <span class="who-badge-text">For Women Who<br>Want More</span>
-    </div>
-  </div>
-
-  <div class="who-right">
-    <span class="pill who-label">IS THIS FOR YOU?</span>
-    <h2 class="who-h2">For Women Who Want<br>to Be Involved</h2>
-    <p class="who-intro">This is for women who refuse to be passive participants in their own fertility journey.</p>
-
-    <div class="who-list">
-      <div class="who-item">
-        <svg class="who-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FF6196" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-        <span class="who-item-label">Want to understand their own case more deeply</span>
-      </div>
-      <div class="who-item">
-        <svg class="who-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4A85C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-        <span class="who-item-label">Don't want to rely on fragmented information</span>
-      </div>
-      <div class="who-item">
-        <svg class="who-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FF6196" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-        <span class="who-item-label">Want to reduce avoidable blind spots</span>
-      </div>
-      <div class="who-item">
-        <svg class="who-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4A85C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <span class="who-item-label">Prefer clarity over uncertainty</span>
-      </div>
-      <div class="who-item">
-        <svg class="who-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#F9A8AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/><path d="m18 15-2-2"/><path d="m15 18-2-2"/></svg>
-        <span class="who-item-label">Want to actively participate in decisions</span>
-      </div>
-    </div>
-
-    <div class="who-ownership">
-      <span class="who-own-1">Being informed isn't distrust.</span>
-      <span class="who-own-2">It's ownership.</span>
-    </div>
-  </div>
+<!-- Section 6: Founding Member Waitlist -->
+<section class="px-[10%] py-24 bg-surface-dim">
+<div class="text-center max-w-3xl mx-auto mb-20">
+<span class="font-label text-[10px] text-primary tracking-[0.2em] mb-4 block" style="">FOUNDING MEMBER ACCESS</span>
+<h2 class="text-4xl mb-6" style="">Join the Waitlist. Get Early Everything.</h2>
+<p class="text-on-surface-variant text-sm" style="">This offer is reserved for early members only — and won't be available after launch.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto mb-24">
+<div class="bg-white p-8 rounded-lg editorial-shadow relative overflow-hidden group">
+<div class="w-12 h-12 bg-surface-accent rounded-lg mb-6 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="">sell</span>
+</div>
+<h4 class="font-bold text-sm mb-4" style="">50% Off — For the Life of Your Subscription</h4>
+<p class="text-[11px] text-on-surface-variant leading-relaxed" style="">Lock in founding member pricing. Pay half the standard rate for as long as you're subscribed.</p>
+<div class="mt-4 text-[9px] font-bold text-primary" style="">Most Valuable</div>
+</div>
+<div class="bg-primary p-8 rounded-lg text-white shadow-xl shadow-primary/20 relative overflow-hidden">
+<div class="w-12 h-12 bg-white/20 rounded-lg mb-6 flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="">bolt</span>
+</div>
+<h4 class="font-bold text-sm mb-4" style="">Priority Access at Launch</h4>
+<p class="text-[11px] opacity-90 leading-relaxed" style="">Be the first to access the platform the moment it goes live — before the public waitlist opens.</p>
+<div class="mt-4 text-[9px] font-bold uppercase tracking-widest" style="">Limited Spots</div>
+</div>
+<div class="bg-secondary p-8 rounded-lg text-white shadow-xl shadow-secondary/20 relative overflow-hidden">
+<div class="w-12 h-12 bg-white/20 rounded-lg mb-6 flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="">rocket_launch</span>
+</div>
+<h4 class="font-bold text-sm mb-4" style="">Early Onboarding</h4>
+<p class="text-[11px] opacity-90 leading-relaxed" style="">Start using Wanted Fertility earlier than the standard release date announced.</p>
+<div class="mt-4 text-[9px] font-bold uppercase tracking-widest" style="">Founding Members Only</div>
+</div>
+<div class="bg-white p-8 rounded-lg editorial-shadow relative overflow-hidden">
+<div class="w-12 h-12 bg-blue-50 rounded-lg mb-6 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="">edit_square</span>
+</div>
+<h4 class="font-bold text-sm mb-4" style="">Shape the Product</h4>
+<p class="text-[11px] text-on-surface-variant leading-relaxed" style="">Your feedback directly influences how the platform evolves. Be part of building something that helps women like you.</p>
+<div class="mt-4 text-[9px] font-bold text-secondary" style="">Exclusive Access</div>
+</div>
+</div>
+<div class="max-w-5xl mx-auto bg-primary rounded-lg p-8 md:p-16 flex flex-col md:flex-row gap-12 text-white items-center relative overflow-hidden">
+<div class="w-full md:w-1/2 relative z-10">
+<span class="font-label text-[10px] text-white/70 mb-4 block" style="">JOIN THE WAITLIST</span>
+<h2 class="text-4xl lg:text-5xl mb-8 leading-tight" style="">If You Want More Clarity. Start Here.</h2>
+<p class="text-white/80 mb-12" style="">Receive 50% off your subscription for the life of your subscription when we launch.</p>
+<div class="flex gap-8">
+<div class="text-center">
+<p class="text-2xl font-bold mb-1" style="">50%</p>
+<p class="text-[9px] font-label opacity-60" style="">off</p>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined mb-1 block" style="">history</span>
+<p class="text-[9px] font-label opacity-60" style="">Early Access</p>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 z-10">
+<form class="bg-white p-10 rounded-lg space-y-6 text-on-surface">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="font-label text-[9px] text-on-surface-variant" style="">First Name</label>
+<input class="w-full bg-surface-accent border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary" placeholder="First Name" type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="font-label text-[9px] text-on-surface-variant" style="">Last Name</label>
+<input class="w-full bg-surface-accent border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary" placeholder="Last Name" type="text"/>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="font-label text-[9px] text-on-surface-variant" style="">Email Address</label>
+<input class="w-full bg-surface-accent border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary" placeholder="Email Address" type="email"/>
+</div>
+<div class="space-y-1.5">
+<label class="font-label text-[9px] text-on-surface-variant" style="">Your Age</label>
+<input class="w-full bg-surface-accent border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary" placeholder="34" type="number"/>
+</div>
+<button class="w-full bg-primary text-white font-label text-xs py-4 rounded-lg hover:bg-primary-dark transition-all flex items-center justify-center gap-2" style="" type="submit">
+                        Join the Waitlist →
+                    </button>
+<p class="text-center text-[8px] text-on-surface-variant opacity-60" style="">Free to join. No credit card required.</p>
+</form>
+</div>
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+</div>
 </section>
-
-<section class="founding-section">
-  <div class="founding-header">
-    <span class="pill founding-label">FOUNDING MEMBER ACCESS</span>
-    <h2 class="founding-h2">Join the Waitlist.<br>Get Early Everything.</h2>
-    <p class="founding-sub">This offer is reserved for early members only — and won't be available after launch.</p>
-  </div>
-
-  <div class="founding-grid">
-    <div class="founding-card fc-white">
-      <div class="founding-icon-box fib-pink">💸</div>
-      <p class="founding-card-h founding-card-h-dk">50% Off — For the Life of Your Subscription</p>
-      <p class="founding-card-p founding-card-p-dk">Lock in founding member pricing. Pay half the standard rate for as long as you're subscribed.</p>
-      <span class="founding-badge fb-pink-on-white">Most Valuable</span>
-    </div>
-    <div class="founding-card fc-pink">
-      <div class="founding-icon-box fib-trans">🚀</div>
-      <p class="founding-card-h founding-card-h-lt">Priority Access at Launch</p>
-      <p class="founding-card-p founding-card-p-lt">Be the first to access the platform the moment it goes live — before the public waitlist opens.</p>
-      <span class="founding-badge fb-white-trans">Limited Spots</span>
-    </div>
-    <div class="founding-card fc-blue">
-      <div class="founding-icon-box fib-trans">⚡</div>
-      <p class="founding-card-h founding-card-h-lt">Early Onboarding</p>
-      <p class="founding-card-p founding-card-p-lt">Start using Wanted Fertility sooner than the standard release date. Get ahead.</p>
-      <span class="founding-badge fb-white-trans">Founding Members Only</span>
-    </div>
-    <div class="founding-card fc-white">
-      <div class="founding-icon-box" style="background:#EFF6FF;">🎯</div>
-      <p class="founding-card-h founding-card-h-dk">Shape the Product</p>
-      <p class="founding-card-p founding-card-p-dk">Your feedback directly influences how the platform evolves. Be part of building something that helps women like you.</p>
-      <span class="founding-badge fb-blue-on-white">Exclusive Access</span>
-    </div>
-  </div>
+<!-- Section 7: Important Information -->
+<section class="px-[10%] py-20 bg-surface-accent/20 text-center">
+<div class="max-w-2xl mx-auto space-y-8"><span class="material-symbols-outlined text-on-surface text-4xl mb-2">lock</span>
+<span class="font-label text-xs text-on-surface tracking-[0.2em] block">IMPORTANT INFORMATION</span>
+<p class="text-sm text-on-surface leading-relaxed italic">
+                Wanted Fertility does not diagnose, treat, or replace medical care. It is a structured information and decision-support tool designed to help you better understand your fertility journey.
+            </p>
+<p class="text-sm font-bold text-on-surface">Always consult with your healthcare provider regarding medical decisions.</p></div>
 </section>
-
-<section class="waitlist-section">
-  <div class="pink-card">
-    <div class="form-left">
-      <div class="form-left-content">
-        <span class="form-label-pill">JOIN THE WAITLIST</span>
-        <h2 class="form-left-h2">If You Want More Clarity. Start Here.</h2>
-        <p class="form-left-sub">Receive 50% off your subscription for the life of your subscription when we launch.</p>
-      </div>
-      
-      <div class="form-stats">
-        <div class="form-stat">
-          <span class="form-stat-big">50%</span>
-          <span class="form-stat-label">Off for life</span>
-        </div>
-        <div class="form-stat">
-          <span class="form-stat-big">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/><path d="M6.38 18.7 4 21"/><path d="M17.64 18.67 20 21"/></svg>
-          </span>
-          <span class="form-stat-label">Early Access</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-right">
-      <div class="form-card">
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">First Name</label>
-            <input type="text" class="form-input" placeholder="Jane" />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Last Name</label>
-            <input type="text" class="form-input" placeholder="Smith" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Email Address</label>
-          <input type="email" class="form-input" placeholder="you@example.com" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Your Age</label>
-          <input type="text" class="form-input" placeholder="e.g. 34" />
-        </div>
-        <button class="form-submit">Join the Waitlist →</button>
-        <p class="form-footnote">Free to join. No credit card required.</p>
-      </div>
-    </div>
-  </div>
+<!-- Section 8: Final CTA -->
+<section class="px-[10%] py-32 text-center bg-surface">
+<span class="font-label text-[10px] text-primary tracking-[0.2em] mb-4 block" style="">THE TIME IS NOW</span>
+<h2 class="text-4xl md:text-5xl mb-8" style="">If You Want More Clarity. Start Here.</h2>
+<p class="text-on-surface-variant text-sm mb-12 max-w-xl mx-auto" style="">Join women who are taking a structured, informed approach to their fertility journey.</p>
+<button class="bg-primary text-white font-label text-xs px-12 py-5 rounded-full hover:scale-105 transition-transform shadow-xl shadow-primary/20 mb-6" style="">Join the Waitlist</button>
+<p class="text-[10px] text-on-surface-variant opacity-60" style="">Receive 50% off your subscription for the life of your subscription when we launch.</p>
 </section>
-
-<section class="transparency-section">
-  <svg class="trans-lock" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-  <span class="pill trans-label">IMPORTANT INFORMATION</span>
-  <div class="trans-box">
-    <p class="trans-p1">Wanted Fertility does not diagnose, treat, or replace medical care. It is a structured information and decision-support tool designed to help you better understand your fertility journey.</p>
-    <p class="trans-p2">Always consult with your healthcare provider regarding medical decisions.</p>
-  </div>
-</section>
-
-<section class="final-cta">
-  <span class="final-label">THE TIME IS NOW</span>
-  <h2 class="final-h2">If You Want More Clarity. Start Here.</h2>
-  <p class="final-sub">Join women who are taking a structured, informed approach to their fertility journey.</p>
-  <a href="#" class="final-btn">Join the Waitlist</a>
-  <p class="final-footnote">Receive 50% off your subscription for the life of your subscription when we launch</p>
-</section>
-
-<footer class="footer">
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="footer-logo">
-        <img src="YOUR_LOGO_NAME.png" alt="Wanted Fertility" />
-      </div>
-      <p class="footer-tagline">A protocol-based fertility decision-support app built by a woman who has been exactly where you are.</p>
-      <span class="footer-copy">© 2025 Wanted Fertility. All rights reserved.</span>
-    </div>
-    <div class="footer-links">
-      <div class="footer-col">
-        <span class="footer-col-h">NAVIGATE</span>
-        <a href="#" class="footer-col-link">Our Story</a>
-        <a href="#" class="footer-col-link">How It Works</a>
-        <a href="#" class="footer-col-link">Who It's For</a>
-        <a href="#" class="footer-col-link-pink">Join Waitlist</a>
-      </div>
-      <div class="footer-col">
-        <span class="footer-col-h">LEGAL</span>
-        <a href="#" class="footer-col-link">Privacy Policy</a>
-        <a href="#" class="footer-col-link">Terms of Service</a>
-        <a href="#" class="footer-col-link">Medical Disclaimer</a>
-      </div>
-    </div>
-  </div>
+</main>
+<footer class="px-[10%] py-20 bg-primary text-white">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12"><div class="md:col-span-2">
+<h4 class="font-bold text-2xl mb-6">Wanted Fertility</h4>
+<p class="text-sm text-white leading-relaxed max-w-sm mb-12">
+                A protocol-based fertility decision-support app built by a woman who has been exactly where you are.
+            </p>
+<p class="text-[10px] text-white font-label">© 2024 Wanted Fertility. All rights reserved.</p>
+</div>
+<div>
+<h5 class="font-label text-xs mb-6 tracking-widest underline underline-offset-8 decoration-white/30">NAVIGATE</h5>
+<ul class="space-y-4 text-xs font-medium">
+<li><a class="text-white hover:underline" href="#">Our Story</a></li>
+<li><a class="text-white hover:underline" href="#">How It Works</a></li>
+<li><a class="text-white hover:underline" href="#">Who It's For</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label text-xs mb-6 tracking-widest underline underline-offset-8 decoration-white/30">LEGAL</h5>
+<ul class="space-y-4 text-xs font-medium">
+<li><a class="text-white hover:underline" href="#">Privacy Policy</a></li>
+<li><a class="text-white hover:underline" href="#">Terms of Service</a></li>
+<li><a class="text-white hover:underline" href="#">Medical Disclaimer</a></li>
+</ul>
+</div></div>
 </footer>
-
-</body>
-</html>
+</body></html>
