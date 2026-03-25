@@ -400,9 +400,14 @@
       background: #FF6196; border-radius: 24px;
       padding: 64px; display: flex; gap: 40px; width: 100%;
       max-width: 1280px;
+      align-items: stretch; /* Ensures the left/right sections have the same height bounds */
     }
     .form-left {
       width: 480px; flex-shrink: 0;
+      display: flex; flex-direction: column; 
+      justify-content: space-between; /* Pushes stats to bottom */
+    }
+    .form-left-content {
       display: flex; flex-direction: column; gap: 28px;
     }
     .form-label-pill {
@@ -416,19 +421,28 @@
       line-height: 1.15;
     }
     .form-left-sub { font-size: 17px; color: #FFD6E7; line-height: 1.6; }
-    .form-stats { display: flex; gap: 16px; }
-    .form-stat {
-      background: rgba(255,255,255,0.13); border-radius: 12px;
-      padding: 20px 24px; display: flex; flex-direction: column; gap: 6px;
+    
+    .form-stats { 
+      display: flex; gap: 20px; 
     }
-    .form-stat-big { font-size: 32px; font-weight: 700; color: #fff; }
-    .form-stat-label { font-size: 13px; color: #FFD6E7; }
-    .form-stat-icon { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #fff; }
+    .form-stat {
+      background: rgba(255,255,255,0.13); border-radius: 20px;
+      padding: 36px 28px; display: flex; flex-direction: column; gap: 12px;
+      flex: 1; /* Makes cards stretch evenly to fill left side */
+      justify-content: center;
+    }
+    .form-stat-big { 
+      font-size: 40px; font-weight: 700; color: #fff; line-height: 1; 
+      display: flex; align-items: center; height: 40px; 
+    }
+    .form-stat-label { 
+      font-size: 16px; font-weight: 500; color: #FFD6E7; 
+    }
 
     .form-right { flex: 1; }
     .form-card {
       background: #fff; border-radius: 28px; padding: 48px;
-      display: flex; flex-direction: column; gap: 16px;
+      display: flex; flex-direction: column; gap: 16px; height: 100%;
     }
     .form-row { display: flex; gap: 16px; }
     .form-group { display: flex; flex-direction: column; gap: 8px; flex: 1; }
@@ -446,9 +460,9 @@
       background: #FF6196; color: #1A1A2E; border-radius: 50px;
       padding: 18px; font-size: 16px; font-weight: 700;
       text-align: center; cursor: pointer; border: none;
-      font-family: 'Open Sans', sans-serif; width: 100%;
+      font-family: 'Open Sans', sans-serif; width: 100%; margin-top: 8px;
     }
-    .form-footnote { font-size: 12px; color: #666; text-align: center; }
+    .form-footnote { font-size: 12px; color: #666; text-align: center; margin-top: auto;}
 
     /* ════════════════════════════════════════
        TRANSPARENCY
@@ -516,7 +530,7 @@
     svg { display: block; }
 
     /* ════════════════════════════════════════
-       📱 MOBILE RESPONSIVENESS (ADDED)
+       📱 MOBILE RESPONSIVENESS
     ════════════════════════════════════════ */
     @media (max-width: 992px) {
       /* General Padding adjustments */
@@ -590,7 +604,7 @@
 
       /* Waitlist Form */
       .pink-card { flex-direction: column; padding: 32px 20px; gap: 32px; border-radius: 20px; }
-      .form-left { width: 100%; }
+      .form-left { width: 100%; gap: 32px; }
       .form-left-h2 { font-size: 34px; }
       .form-card { padding: 24px; }
       .form-row { flex-direction: column; }
@@ -881,19 +895,22 @@
 <section class="waitlist-section">
   <div class="pink-card">
     <div class="form-left">
-      <span class="form-label-pill">JOIN THE WAITLIST</span>
-      <h2 class="form-left-h2">If You Want More Clarity. Start Here.</h2>
-      <p class="form-left-sub">Receive 50% off your subscription for the life of your subscription when we launch.</p>
+      <div class="form-left-content">
+        <span class="form-label-pill">JOIN THE WAITLIST</span>
+        <h2 class="form-left-h2">If You Want More Clarity. Start Here.</h2>
+        <p class="form-left-sub">Receive 50% off your subscription for the life of your subscription when we launch.</p>
+      </div>
+      
       <div class="form-stats">
         <div class="form-stat">
           <span class="form-stat-big">50%</span>
-          <span class="form-stat-label">off for life</span>
+          <span class="form-stat-label">Off for life</span>
         </div>
         <div class="form-stat">
-          <div class="form-stat-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/><path d="M6.38 18.7 4 21"/><path d="M17.64 18.67 20 21"/></svg>
-            Early Access
-          </div>
+          <span class="form-stat-big">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/><path d="M6.38 18.7 4 21"/><path d="M17.64 18.67 20 21"/></svg>
+          </span>
+          <span class="form-stat-label">Early Access</span>
         </div>
       </div>
     </div>
