@@ -228,18 +228,23 @@
     /* Timeline row */
     .why-timeline {
       display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 80px;
       position: relative; min-height: 580px;
+      width: 100%;
     }
+    
     .why-connector {
-      position: absolute; top: 289px; left: 80px; right: 80px; height: 3px;
-      background: #F9A8AB;
+      display: none;
     }
+    
     .wc-col {
-      padding: 0 30px; display: flex; flex-direction: column;
+      display: flex; flex-direction: column;
       justify-content: flex-start; position: relative;
     }
-    .wc-col:first-child { padding-left: 80px; }
-    .wc-col:last-child { padding-right: 80px; }
+
     .wc-text { display: flex; flex-direction: column; gap: 12px; }
     .wc-h { font-size: 17px; font-weight: 700; color: #1A1A2E; line-height: 1.3; }
     .wc-p { font-size: 14px; color: #666; line-height: 1.65; }
@@ -533,7 +538,7 @@
 
       /* Why Section */
       .why-h2 { font-size: 34px; }
-      .why-timeline { display: flex; flex-direction: column; gap: 40px; min-height: auto; }
+      .why-timeline { display: flex; flex-direction: column; gap: 40px; min-height: auto; padding: 0 20px; }
       .why-connector { display: none; }
       .wc-col, .wc-col:first-child, .wc-col:last-child { padding: 0; }
       .wc-layout-top .wc-text, .wc-layout-bottom .wc-text { margin-top: 0; margin-bottom: 12px; padding-bottom: 0; }
@@ -699,8 +704,6 @@
   </div>
 
   <div class="why-timeline">
-    <div class="why-connector"></div>
-
     <div class="wc-col wc-layout-top">
       <div class="wc-text">
         <p class="wc-h">Information Lives Everywhere</p>
