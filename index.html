@@ -158,7 +158,7 @@
       text-align: center; max-width: 580px;
     }
 
-    /* Bento grid — mirrors the absolute layout via CSS Grid */
+    /* Bento grid */
     .bento-grid {
       display: grid;
       grid-template-columns: 380px 480px 380px;
@@ -247,11 +247,8 @@
       width: 100%; height: 220px; border-radius: 8px; object-fit: cover; display: block;
     }
 
-    /* WC1 & WC3: text top (y:40), image below (y:160) */
     .wc-layout-top .wc-text { margin-top: 40px; margin-bottom: 20px; }
     .wc-layout-top .wc-img { margin-top: auto; }
-
-    /* WC2: image top (y:80), text below (y:330) */
     .wc-layout-bottom { justify-content: flex-start; }
     .wc-layout-bottom .wc-img { margin-top: 80px; margin-bottom: 20px; }
     .wc-layout-bottom .wc-text { margin-top: auto; padding-bottom: 40px; }
@@ -492,13 +489,89 @@
     ════════════════════════════════════════ */
     .icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
     svg { display: block; }
+
+    /* ════════════════════════════════════════
+       📱 MOBILE RESPONSIVENESS (ADDED)
+    ════════════════════════════════════════ */
+    @media (max-width: 992px) {
+      /* General Padding adjustments */
+      .navbar { padding: 0 20px; }
+      .nav-link { display: none; } /* Hide text links, keep CTA */
+      
+      .hero, .video-section, .bento-section, .why-header, 
+      .who-section, .founding-section, .waitlist-section, 
+      .transparency-section, .final-cta, .footer-top {
+        padding: 40px 20px;
+      }
+
+      /* Hero Section */
+      .hero { flex-direction: column; gap: 40px; }
+      .hero-left, .hero-right { flex: 1 1 auto; width: 100%; height: auto; }
+      .hero-h1 { font-size: 38px; }
+      .hero-cta-row { flex-direction: column; align-items: flex-start; }
+      .hero-img { position: relative; width: 100%; height: auto; aspect-ratio: 4/5; border-radius: 20px; }
+      .hero-float-1 { bottom: 20px; right: 10px; width: auto; padding: 0 16px; height: 70px; }
+      .hero-float-2 { top: 20px; left: -10px; width: auto; padding: 0 16px; height: 60px; }
+
+      /* Video Section */
+      .video-h2 { font-size: 34px; }
+      .video-embed { width: 100%; height: auto; aspect-ratio: 16/9; }
+      .video-quote-box { padding: 24px; border-radius: 16px; }
+      .video-quote-text { font-size: 16px; }
+
+      /* Bento Grid */
+      .bento-h2 { font-size: 34px; }
+      .bento-grid { 
+        display: flex; 
+        flex-direction: column; 
+        width: 100%; 
+        gap: 20px; 
+      }
+      .bento-card { height: auto; }
+      .bento-closing { flex-direction: column; gap: 16px; padding: 32px 20px; text-align: center; }
+      .bento-closing-sep { display: none; }
+
+      /* Why Section */
+      .why-h2 { font-size: 34px; }
+      .why-timeline { display: flex; flex-direction: column; gap: 40px; min-height: auto; }
+      .why-connector { display: none; }
+      .wc-col, .wc-col:first-child, .wc-col:last-child { padding: 0; }
+      .wc-layout-top .wc-text, .wc-layout-bottom .wc-text { margin-top: 0; margin-bottom: 12px; padding-bottom: 0; }
+      .wc-layout-top .wc-img, .wc-layout-bottom .wc-img { margin-top: 0; margin-bottom: 0; }
+      .why-close { margin: 0 20px; padding: 40px 24px; border-radius: 20px; }
+      .why-close-p { font-size: 18px; }
+
+      /* Who Section */
+      .who-section { flex-direction: column; gap: 40px; }
+      .who-img-block { width: 100%; height: auto; aspect-ratio: 1; }
+      .who-img-grid { position: relative; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; padding: 8px; gap: 8px; }
+      .who-badge { top: -20px; right: 20px; }
+      .who-h2 { font-size: 34px; }
+
+      /* Founding Member */
+      .founding-h2 { font-size: 34px; }
+      .founding-grid { grid-template-columns: 1fr; }
+
+      /* Waitlist Form */
+      .pink-card { flex-direction: column; padding: 32px 20px; gap: 32px; border-radius: 20px; }
+      .form-left { width: 100%; }
+      .form-left-h2 { font-size: 34px; }
+      .form-card { padding: 24px; }
+      .form-row { flex-direction: column; }
+      .form-stats { flex-direction: column; }
+
+      /* Transparency & Final CTA */
+      .trans-box { padding: 24px; }
+      .final-h2 { font-size: 36px; }
+
+      /* Footer */
+      .footer-top { flex-direction: column; gap: 40px; }
+      .footer-links { flex-direction: column; gap: 32px; }
+    }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════
-     NAVBAR
-══════════════════════════════════════════════ -->
 <nav class="navbar">
   <div class="nav-logo">
     <span class="nav-logo-w">wanted.</span>
@@ -512,9 +585,6 @@
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════════
-     HERO
-══════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-left">
     <div class="hero-tag">
@@ -553,9 +623,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     FOUNDER'S STORY / VIDEO
-══════════════════════════════════════════════ -->
 <section class="video-section">
   <span class="pill video-label">FOUNDER'S STORY</span>
   <h2 class="video-h2">Why I Built This</h2>
@@ -576,9 +643,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     HOW IT WORKS — BENTO GRID
-══════════════════════════════════════════════ -->
 <section class="bento-section">
   <div class="bento-header">
     <span class="pill bento-label">HOW IT WORKS</span>
@@ -587,35 +651,30 @@
   </div>
 
   <div class="bento-grid">
-    <!-- Card A -->
     <div class="bento-card bento-card-a">
       <span class="bento-num num-pink">01</span>
       <p class="bento-card-title bento-card-title-dk">Input your medical history, labs &amp; cycle data</p>
       <p class="bento-card-desc bento-card-desc-dk">Build a complete picture of your fertility journey in one place</p>
     </div>
 
-    <!-- Card B -->
     <div class="bento-card bento-card-b">
       <span class="bento-num num-pink-trans">03</span>
       <p class="bento-card-title bento-card-title-lt">Move through a protocol-based sequence</p>
       <p class="bento-card-desc bento-card-desc-lt">Evidence-informed steps in the right order, not scattered information you have to piece together</p>
     </div>
 
-    <!-- Center Card -->
     <div class="bento-card-center">
       <span class="bento-num num-white-trans">02</span>
       <p class="bento-center-title">Track your cycles in a structured way</p>
       <p class="bento-center-desc">Consistent, structured data creates clarity. Know your body. Move forward with confidence.</p>
     </div>
 
-    <!-- Card D -->
     <div class="bento-card bento-card-d">
       <span class="bento-num num-red-trans">04</span>
       <p class="bento-card-title bento-card-title-dk">Identify potential gaps or missed considerations</p>
       <p class="bento-card-desc bento-card-desc-dk">Surface what might be overlooked. The details that can change outcomes.</p>
     </div>
 
-    <!-- Card E -->
     <div class="bento-card bento-card-e">
       <span class="bento-num num-blue-trans">05</span>
       <p class="bento-card-title bento-card-title-dk">Understand what to explore next with your provider</p>
@@ -632,9 +691,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     WHY THIS MATTERS
-══════════════════════════════════════════════ -->
 <section class="why-section">
   <div class="why-header">
     <span class="pill why-label">THE REALITY</span>
@@ -645,7 +701,6 @@
   <div class="why-timeline">
     <div class="why-connector"></div>
 
-    <!-- WC1: text top, image bottom -->
     <div class="wc-col wc-layout-top">
       <div class="wc-text">
         <p class="wc-h">Information Lives Everywhere</p>
@@ -656,7 +711,6 @@
         alt="Information fragmentation" />
     </div>
 
-    <!-- WC2: image top, text bottom -->
     <div class="wc-col wc-layout-bottom">
       <img class="wc-img"
         src="https://images.unsplash.com/photo-1613298262171-8fb6107ff97b?w=800&q=80"
@@ -667,7 +721,6 @@
       </div>
     </div>
 
-    <!-- WC3: text top, image bottom -->
     <div class="wc-col wc-layout-top">
       <div class="wc-text">
         <p class="wc-h">Critical Factors Get Missed</p>
@@ -685,9 +738,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     WHO IT'S FOR
-══════════════════════════════════════════════ -->
 <section class="who-section">
   <div class="who-img-block">
     <div class="who-img-grid">
@@ -708,27 +758,22 @@
 
     <div class="who-list">
       <div class="who-item">
-        <!-- Eye icon -->
         <svg class="who-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FF6196" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
         <span class="who-item-label">Want to understand their own case more deeply</span>
       </div>
       <div class="who-item">
-        <!-- Layers icon -->
         <svg class="who-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4A85C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
         <span class="who-item-label">Don't want to rely on fragmented information</span>
       </div>
       <div class="who-item">
-        <!-- Shield Check icon -->
         <svg class="who-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FF6196" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
         <span class="who-item-label">Want to reduce avoidable blind spots</span>
       </div>
       <div class="who-item">
-        <!-- Sun icon -->
         <svg class="who-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4A85C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <span class="who-item-label">Prefer clarity over uncertainty</span>
       </div>
       <div class="who-item">
-        <!-- Heart Handshake icon -->
         <svg class="who-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#F9A8AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/><path d="m18 15-2-2"/><path d="m15 18-2-2"/></svg>
         <span class="who-item-label">Want to actively participate in decisions</span>
       </div>
@@ -741,9 +786,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     FOUNDING MEMBER ACCESS
-══════════════════════════════════════════════ -->
 <section class="founding-section">
   <div class="founding-header">
     <span class="pill founding-label">FOUNDING MEMBER ACCESS</span>
@@ -752,28 +794,24 @@
   </div>
 
   <div class="founding-grid">
-    <!-- Card 1: White -->
     <div class="founding-card fc-white">
       <div class="founding-icon-box fib-pink">💸</div>
       <p class="founding-card-h founding-card-h-dk">50% Off — For the Life of Your Subscription</p>
       <p class="founding-card-p founding-card-p-dk">Lock in founding member pricing. Pay half the standard rate for as long as you're subscribed.</p>
       <span class="founding-badge fb-pink-on-white">Most Valuable</span>
     </div>
-    <!-- Card 2: Pink -->
     <div class="founding-card fc-pink">
       <div class="founding-icon-box fib-trans">🚀</div>
       <p class="founding-card-h founding-card-h-lt">Priority Access at Launch</p>
       <p class="founding-card-p founding-card-p-lt">Be the first to access the platform the moment it goes live — before the public waitlist opens.</p>
       <span class="founding-badge fb-white-trans">Limited Spots</span>
     </div>
-    <!-- Card 3: Blue -->
     <div class="founding-card fc-blue">
       <div class="founding-icon-box fib-trans">⚡</div>
       <p class="founding-card-h founding-card-h-lt">Early Onboarding</p>
       <p class="founding-card-p founding-card-p-lt">Start using Wanted Fertility sooner than the standard release date. Get ahead.</p>
       <span class="founding-badge fb-white-trans">Founding Members Only</span>
     </div>
-    <!-- Card 4: White -->
     <div class="founding-card fc-white">
       <div class="founding-icon-box" style="background:#EFF6FF;">🎯</div>
       <p class="founding-card-h founding-card-h-dk">Shape the Product</p>
@@ -783,9 +821,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     WAITLIST FORM
-══════════════════════════════════════════════ -->
 <section class="waitlist-section">
   <div class="pink-card">
     <div class="form-left">
@@ -799,7 +834,6 @@
         </div>
         <div class="form-stat">
           <div class="form-stat-icon">
-            <!-- Timer icon -->
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/><path d="M6.38 18.7 4 21"/><path d="M17.64 18.67 20 21"/></svg>
             Early Access
           </div>
@@ -834,11 +868,7 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     TRANSPARENCY
-══════════════════════════════════════════════ -->
 <section class="transparency-section">
-  <!-- Lock icon -->
   <svg class="trans-lock" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
   <span class="pill trans-label">IMPORTANT INFORMATION</span>
   <div class="trans-box">
@@ -847,9 +877,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     FINAL CTA
-══════════════════════════════════════════════ -->
 <section class="final-cta">
   <span class="final-label">THE TIME IS NOW</span>
   <h2 class="final-h2">If You Want More Clarity. Start Here.</h2>
@@ -858,9 +885,6 @@
   <p class="final-footnote">Receive 50% off your subscription for the life of your subscription when we launch</p>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════════ -->
 <footer class="footer">
   <div class="footer-top">
     <div class="footer-brand">
