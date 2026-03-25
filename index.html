@@ -27,8 +27,7 @@
       border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 100;
     }
     .nav-logo { display: flex; align-items: center; gap: 2px; }
-    .nav-logo-w { font-size: 26px; font-weight: 700; color: #FF6196; line-height: 1; }
-    .nav-logo-f { font-size: 13px; font-weight: 700; color: #6B7280; letter-spacing: 3.5px; }
+    .nav-logo img { height: 32px; width: auto; } /* Added for logo image sizing */
     .nav-right { display: flex; align-items: center; gap: 36px; }
     .nav-link { font-size: 14px; color: #374151; }
     .nav-cta {
@@ -272,11 +271,10 @@
       width: 100%; height: 220px; border-radius: 8px; object-fit: cover; display: block;
     }
 
-    /* Adjusted margins to remove the empty space */
     .wc-layout-top .wc-text { margin-top: 0; margin-bottom: 24px; }
     .wc-layout-top .wc-img { margin-top: 0; }
     
-    .wc-layout-bottom { margin-top: 60px; } /* Keeps the staggered layout across columns */
+    .wc-layout-bottom { margin-top: 60px; }
     .wc-layout-bottom .wc-img { margin-top: 0; margin-bottom: 24px; }
     .wc-layout-bottom .wc-text { margin-top: 0; padding-bottom: 0; }
 
@@ -506,17 +504,15 @@
     .final-footnote { font-size: 14px; color: #999; text-align: center; max-width: 561px; }
 
     /* ════════════════════════════════════════
-       FOOTER
+       FOOTER (UPDATED BACKGROUND)
     ════════════════════════════════════════ */
-    .footer { background: #fff; }
+    .footer { background: #FFF5F8; }
     .footer-top {
       display: flex; justify-content: space-between; align-items: flex-start;
       padding: 60px 80px; gap: 60px;
     }
     .footer-brand { display: flex; flex-direction: column; gap: 20px; max-width: 320px; }
-    .footer-logo { display: flex; align-items: center; }
-    .footer-logo-w { font-size: 22px; font-weight: 700; color: #FF6196; }
-    .footer-logo-f { font-size: 11px; font-weight: 700; color: #6B7280; letter-spacing: 3px; }
+    .footer-logo img { height: 32px; width: auto; } /* Added for logo image sizing */
     .footer-tagline { font-size: 14px; color: #666; line-height: 1.7; max-width: 280px; }
     .footer-copy { font-size: 13px; color: #999; }
     .footer-links { display: flex; gap: 80px; }
@@ -627,8 +623,7 @@
 
 <nav class="navbar">
   <div class="nav-logo">
-    <span class="nav-logo-w">wanted.</span>
-    <span class="nav-logo-f">&nbsp;FERTILITY</span>
+    <img src="YOUR_LOGO_NAME.png" alt="Wanted Fertility" />
   </div>
   <div class="nav-right">
     <a href="#" class="nav-link">Our Story</a>
@@ -659,9 +654,9 @@
     </div>
   </div>
   <div class="hero-right">
-    <img class="hero-img"
-      src="https://images.unsplash.com/photo-1672232946301-3600f68df8c0?w=1080&q=80"
-      alt="Founder" />
+    
+    <img class="hero-img" src="YOUR_HERO_IMAGE_NAME.jpg" alt="Founder" />
+
     <div class="hero-float-1">
       <div class="hero-float-icon">🌸</div>
       <div class="hero-float-text">
@@ -966,8 +961,7 @@
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo">
-        <span class="footer-logo-w">wanted.</span>
-        <span class="footer-logo-f">&nbsp;FERTILITY</span>
+        <img src="YOUR_LOGO_NAME.png" alt="Wanted Fertility" />
       </div>
       <p class="footer-tagline">A protocol-based fertility decision-support app built by a woman who has been exactly where you are.</p>
       <span class="footer-copy">© 2025 Wanted Fertility. All rights reserved.</span>
