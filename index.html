@@ -1,411 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Wanted Fertility | Join the Waitlist</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#FF6196",
-                        "primary-dark": "#E0487D",
-                        "secondary": "#4A85C6",
-                        "light-pink": "#F9A8AB",
-                        "surface": "#FFFFFF",
-                        "surface-dim": "#F9F6F7",
-                        "surface-accent": "#FFF0F4",
-                        "on-surface": "#1E1B1A",
-                        "on-surface-variant": "#584146",
-                        "outline": "#E9E1DF"
-                    },
-                    fontFamily: {
-                        "headline": ["'ITC Avant Garde Gothic Pro'", "sans-serif"],
-                        "body": ["-apple-system", "BlinkMacSystemFont", "'SF Pro'", "sans-serif"],
-                        "label": ["'Source Sans Pro'", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "8px",
-                        "lg": "16px",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-    <style>
-        @font-face {
-            font-family: 'ITC Avant Garde Gothic Pro';
-            src: url('https://fonts.cdnfonts.com/css/itc-avant-garde-gothic-pro') format('woff2');
-            font-weight: 700;
-        }
-        body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro", sans-serif; }
-        h1, h2, h3, h4 { font-family: 'ITC Avant Garde Gothic Pro', sans-serif; font-weight: 700 !important; }
-        .font-label { font-family: 'Source Sans Pro', sans-serif; text-transform: uppercase; letter-spacing: 0.03em; font-weight: 700; }
-        .hero-gradient { background: linear-gradient(135deg, #FF6196 0%, #FF8FB4 100%); }
-        .editorial-shadow { box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05); }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanted Fertility | Science-Based Fertility Support</title>
 </head>
-<body class="bg-surface text-on-surface">
-
-    <nav class="sticky top-0 w-full z-50 bg-white/90 backdrop-blur-sm border-b border-outline">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex justify-between items-center">
-            <div class="h-10 md:h-12 flex items-center">
-                <img alt="Wanted Fertility" class="h-full w-auto object-contain" src="https://i.ibb.co/ycsjNtn1/Logo.png" />
-            </div>
-            <div class="hidden md:flex gap-8 items-center">
-                <a class="font-label text-xs text-on-surface-variant hover:text-primary transition-colors" href="#">Our Story</a>
-                <a class="font-label text-xs text-on-surface-variant hover:text-primary transition-colors" href="#">How It Works</a>
-                <a class="font-label text-xs text-on-surface-variant hover:text-primary transition-colors" href="#">Who It's For</a>
-                <button class="bg-primary text-white font-label text-[10px] px-6 py-2.5 rounded-full hover:bg-primary-dark transition-all">Join the Waitlist</button>
-            </div>
-        </div>
-    </nav>
+<body>
+    <header>
+        <a href="/">Wanted Fertility</a>
+        <nav>
+            <a href="#story">My Story</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#beta">Beta Access</a>
+        </nav>
+        <button>Start Free Trial</button>
+    </header>
 
     <main>
-        <section class="py-16 md:py-24 bg-surface relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-                <div class="w-full lg:w-1/2 z-10 text-center lg:text-left">
-                    <span class="inline-block bg-surface-accent text-primary font-label text-[10px] px-3 py-1 mb-8 rounded-sm">WAITLIST NOW OPEN</span>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl text-on-surface leading-[1.1] mb-8">
-                        I Lost Four Pregnancies Because One Thing Was Missed.
-                    </h1>
-                    <p class="text-lg text-on-surface-variant mb-12 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                        When I finally found a specialist who took a structured, protocol-based approach everything changed. I got pregnant at 42. I had my daughter.
-                    </p>
-                    <div class="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-6 mb-10">
-                        <button class="bg-primary text-white font-label text-xs px-10 py-4 rounded-full hover:scale-[1.02] transition-transform shadow-lg shadow-primary/20">Join the Waitlist</button>
-                        <p class="text-[10px] text-primary font-medium leading-tight text-center sm:text-left">50% off for the life of your subscription<br/>when the app launches.</p>
-                    </div>
-                    <div class="pt-8 border-t border-outline max-w-xs mx-auto lg:mx-0 text-center lg:text-left">
-                        <p class="text-[10px] text-on-surface-variant font-medium mb-1">Currently accepting women ages 42 and under</p>
-                        <p class="text-[9px] text-on-surface-variant opacity-60">Separate waitlist available for women 43+</p>
-                    </div>
-                </div>
-                
-                <div class="w-full lg:w-1/2 relative mt-8 lg:mt-0">
-                    <div class="relative aspect-[4/5] rounded-lg overflow-hidden shadow-2xl">
-                        <img alt="Woman in soft clinical setting" class="w-full h-full object-cover" src="https://i.ibb.co/3yNLHbbH/IMG-2344.jpg" />
-                        <div class="absolute top-4 left-4 md:top-8 md:left-8 bg-primary text-white px-4 py-2 rounded text-[10px] font-label shadow-xl">
-                            Founding Member<br/>Access
-                        </div>
-                        <div class="absolute bottom-6 right-4 md:bottom-12 md:right-8 bg-white/95 p-5 rounded shadow-2xl border border-outline/50 backdrop-blur-md">
-                            <p class="text-[10px] font-bold text-on-surface uppercase tracking-wider mb-1">Protocol-Based</p>
-                            <p class="text-[9px] text-on-surface-variant italic">patience informed</p>
-                            <div class="mt-3 w-full h-1 bg-on-surface rounded-full"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section id="hero">
+            <h1>Science-Based Fertility Support</h1>
+            <h2>I Lost Four Pregnancies</h2>
+            <p>I built this app after my husband and I lost four pregnancies in two years. Without this medical protocol, I could have continued to lose my future ones as well.</p>
+            <p>We were told everything looked "normal."</p>
+            <p>We were told IVF was our only option.</p>
+            <p>It wasn't.</p>
+            <p>This science-based app is built from the exact medical protocol that helped me carry my daughter — and now my second baby — safely to term.</p>
+            <p>It's designed to help you understand what comes next, reduce blind spots, and move toward a healthy pregnancy with the least intervention necessary.</p>
+            
+            <button>Start Beta Access — Free for 30 Days</button>
+            <p>Then 50% off your subscription- $25/month (regular price $50/month). Includes FREE subscription for your male counterpart. Cancel anytime.</p>
+            
+            <img src="/images/hero-organic.jpg" alt="A serene moment of hope">
         </section>
 
-        <section class="py-16 md:py-24 bg-surface-dim">
-            <div class="max-w-7xl mx-auto px-6 md:px-12 text-center">
-                <span class="font-label text-[10px] text-secondary tracking-[0.2em] mb-4 block">FOUNDER'S STORY</span>
-                <h2 class="text-3xl md:text-4xl mb-16">Why I Built This</h2>
-                
-                <div class="max-w-4xl mx-auto relative group">
-                    <div class="aspect-video bg-[#12141D] rounded-lg overflow-hidden flex items-center justify-center relative shadow-lg">
-                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-3xl">play_arrow</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-20 max-w-3xl mx-auto bg-white p-10 md:p-14 rounded-lg editorial-shadow relative">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-1 bg-secondary rounded-full"></div>
-                    <p class="text-base md:text-lg text-on-surface-variant italic leading-relaxed mb-8">
-                        "If I had gone straight to IVF like everyone recommended, I likely would have experienced more loss. IVF is powerful, and this app will flag when it's appropriate. But there are often earlier steps that can be missed. For me, IVF wasn't the answer. Finding what was overlooked was."
-                    </p>
-                    <p class="font-label text-[10px] text-primary">Nicole, Founder of Wanted Fertility</p>
-                </div>
-            </div>
+        <section id="story">
+            <h2>Hear My Story</h2>
+            <img src="/images/founder.jpg" alt="Founder sharing her story">
+            <p>Watch the full story</p>
+            <span>3:45</span>
+            <blockquote>
+                "If I had gone straight to IVF like everyone recommended, I likely would have experienced more losses. IVF is powerful and this protocol will flag when it's appropriate — but there are often other entry level actions that could be overlooked. For me, IVF wasn't the answer."
+            </blockquote>
         </section>
 
-        <section class="py-16 md:py-24 bg-surface-dim">
-            <div class="max-w-7xl mx-auto px-6 md:px-12">
-                <div class="text-center max-w-2xl mx-auto mb-20">
-                    <p class="text-on-surface-variant text-sm mb-6">Wanted Fertility translates established medical protocols into a clear, step-by-step system.</p>
-                    <h2 class="text-3xl md:text-4xl">A Structured Way to Understand What Comes Next</h2>
-                </div>
-                
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-                    <div class="flex flex-col gap-8">
-                        <div class="bg-white border border-[#FFF0F4] p-10 rounded-lg flex-1 flex flex-col">
-                            <span class="inline-block bg-[#FFF0F4] text-primary text-[10px] font-bold px-3 py-1 rounded-full w-fit mb-8">01</span>
-                            <h3 class="text-lg font-bold mb-4 leading-tight">Input your medical history, labs & cycle data</h3>
-                            <p class="text-sm text-on-surface-variant leading-relaxed">Build a complete picture of your fertility journey in one place.</p>
-                        </div>
-                        <div class="bg-primary text-white p-10 rounded-lg flex-1 flex flex-col">
-                            <span class="inline-block bg-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full w-fit mb-8">03</span>
-                            <h3 class="text-lg font-bold mb-4 leading-tight">Move through a protocol-based sequence</h3>
-                            <p class="text-sm opacity-90 leading-relaxed">Evidence-informed steps in the right order, not scattered information you have to piece together.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-secondary text-white p-10 md:p-12 rounded-lg flex flex-col justify-center min-h-[400px] lg:min-h-[500px] shadow-2xl shadow-blue-900/20">
-                        <span class="inline-block bg-white/10 text-white text-[10px] font-bold px-3 py-1 rounded-full w-fit mb-10">02</span>
-                        <h3 class="text-3xl md:text-4xl font-bold mb-8 leading-tight">Track your cycles in a structured way</h3>
-                        <p class="text-base opacity-90 leading-relaxed mb-4">Consistent, structured data creates clarity. Know your body. Move forward with confidence.</p>
-                    </div>
-                    
-                    <div class="flex flex-col gap-8">
-                        <div class="bg-[#FFF5F7] border border-[#FFE0E9] p-10 rounded-lg flex-1 flex flex-col">
-                            <span class="inline-block bg-[#FFE0E9] text-primary text-[10px] font-bold px-3 py-1 rounded-full w-fit mb-8">04</span>
-                            <h3 class="text-lg font-bold mb-4 leading-tight">Identify potential gaps or missed considerations</h3>
-                            <p class="text-sm text-on-surface-variant leading-relaxed">Surface what might be overlooked. The details that can change outcomes.</p>
-                        </div>
-                        <div class="bg-[#F0F7FF] p-10 rounded-lg flex-1 flex flex-col border border-[#DEEFFF]">
-                            <span class="inline-block bg-[#DEEFFF] text-[#4A85C6] text-[10px] font-bold px-3 py-1 rounded-full w-fit mb-8">05</span>
-                            <h3 class="text-lg font-bold mb-4 leading-tight">Understand what to explore next with your provider</h3>
-                            <p class="text-sm text-on-surface-variant leading-relaxed">Walk into every appointment prepared. Ask the right questions. Get the right answers.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 items-start text-center">
-                    <div class="flex flex-col items-center gap-5">
-                        <span class="material-symbols-outlined text-primary text-4xl">check_circle</span>
-                        <span class="text-black font-label text-sm tracking-widest uppercase">It's not guesswork.</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-5">
-                        <span class="material-symbols-outlined text-primary text-4xl">hub</span>
-                        <span class="text-black font-label text-sm tracking-widest uppercase">It's not scattered info.</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-5">
-                        <span class="material-symbols-outlined text-primary text-4xl">grid_view</span>
-                        <span class="text-black font-label text-sm tracking-widest uppercase font-bold">It's structure.</span>
-                    </div>
-                </div>
-            </div>
+        <section id="how-it-works">
+            <h2>A Blueprint of Next Steps to Fertility Clarity</h2>
+            <p>Wanted Fertility translates established medical protocols — the same ones that changed my outcome — into a structured digital experience.</p>
+            <img src="/images/app-mockup.jpg" alt="Wanted Fertility App">
+            
+            <ul>
+                <li>Input relevant medical and cycle data</li>
+                <li>Move through a step-by-step decision pathway</li>
+                <li>Identify potential gaps or missing considerations</li>
+                <li>Organize everything in one centralized system</li>
+                <li>Receive guidance on what to explore next with your provider</li>
+            </ul>
+            
+            <p>This app does not replace medical care.</p>
+            <p>It helps you participate in it.</p>
+            <p>It's designed to reduce blind spots so critical steps aren't missed.</p>
+            <p>Because that's what happened to me.</p>
         </section>
 
-        <section class="py-16 md:py-24 bg-surface-accent/30">
-            <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                <div class="w-full lg:w-1/2">
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="space-y-6">
-                            <img alt="Medical glass vials" class="rounded-lg h-48 md:h-64 w-full object-cover" src="https://images.unsplash.com/photo-1628771065518-0d82f1938462?auto=format&fit=crop&q=80" />
-                            <img alt="Laboratory setting" class="rounded-lg h-64 md:h-80 w-full object-cover grayscale" src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80" />
-                        </div>
-                        <div class="pt-10 md:pt-16 space-y-6">
-                            <div class="bg-secondary p-8 md:p-10 rounded-lg text-white">
-                                <p class="font-label text-[10px] mb-5">CLINICAL PRECISION</p>
-                                <img alt="Medical professional consultation" class="rounded-lg h-24 md:h-32 w-full object-cover" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80" />
-                            </div>
-                            <img alt="Medical equipment close-up" class="rounded-lg h-48 md:h-64 w-full object-cover" src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80" />
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full lg:w-1/2 text-center lg:text-left">
-                    <span class="font-label text-[10px] text-primary tracking-[0.2em] mb-6 block">THE REALITY</span>
-                    <h2 class="text-3xl md:text-4xl mb-8">Because Fertility Care Isn’t Always Linear</h2>
-                    <p class="text-on-surface-variant text-base md:text-lg leading-relaxed mb-12">
-                        Most women aren't lacking effort — they're lacking visibility. Wanted Fertility was built to reduce that risk. Not by replacing your doctor. By helping you stay informed, organised, and engaged.
-                    </p>
-                    <button class="bg-primary text-white font-label text-[10px] px-8 py-4 rounded-full hover:bg-primary-dark transition-all">Join the Waitlist</button>
-                </div>
-            </div>
+        <section id="for-women">
+            <h2>For Women Who Refuse to Be Passive</h2>
+            <p>I built Wanted Fertility for women who:</p>
+            <ul>
+                <li>Refuse to outsource their understanding</li>
+                <li>Want to actively participate in decisions</li>
+                <li>Want to reduce avoidable blind spots</li>
+                <li>Take this journey seriously</li>
+            </ul>
+            
+            <p>Being informed is not distrust.</p>
+            <p>It's ownership.</p>
+            <p>You can deeply respect your doctor and still want to understand your own case clearly.</p>
+            <p>This is for women who don't want to sit quietly and hope someone else catches everything.</p>
         </section>
 
-        <section class="py-16 md:py-24 bg-surface">
-            <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                <div class="w-full lg:w-1/2 order-2 lg:order-1">
-                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] mb-6 block text-center lg:text-left">IS THIS FOR YOU?</span>
-                    <h2 class="text-3xl md:text-4xl mb-8 text-center lg:text-left">For Women Who Want to Be Involved</h2>
-                    <p class="text-on-surface-variant text-base mb-10 text-center lg:text-left">This is for women who refuse to be passive participants in their own fertility journey.</p>
-                    
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-5 p-5 bg-surface-dim rounded-lg">
-                            <span class="material-symbols-outlined text-primary text-xl">visibility</span>
-                            <span class="text-sm font-medium text-on-surface-variant">Want to understand their own case more deeply</span>
-                        </li>
-                        <li class="flex items-center gap-5 p-5 bg-surface-dim rounded-lg">
-                            <span class="material-symbols-outlined text-primary text-xl">database</span>
-                            <span class="text-sm font-medium text-on-surface-variant">Don't want to rely on fragmented information</span>
-                        </li>
-                        <li class="flex items-center gap-5 p-5 bg-surface-dim rounded-lg">
-                            <span class="material-symbols-outlined text-primary text-xl">verified</span>
-                            <span class="text-sm font-medium text-on-surface-variant">Want to reduce avoidable blind spots</span>
-                        </li>
-                        <li class="flex items-center gap-5 p-5 bg-surface-dim rounded-lg">
-                            <span class="material-symbols-outlined text-primary text-xl">lightbulb</span>
-                            <span class="text-sm font-medium text-on-surface-variant">Prefer clarity over uncertainty</span>
-                        </li>
-                        <li class="flex items-center gap-5 p-5 bg-surface-dim rounded-lg">
-                            <span class="material-symbols-outlined text-primary text-xl">favorite</span>
-                            <span class="text-sm font-medium text-on-surface-variant">Want to actively participate in decisions</span>
-                        </li>
-                    </ul>
-                    <div class="mt-10 p-6 bg-surface-accent rounded-lg border-l-4 border-primary">
-                        <p class="text-sm text-primary font-bold">Being informed isn't distrust. It's ownership.</p>
-                    </div>
-                </div>
-                
-                <div class="w-full lg:w-1/2 order-1 lg:order-2">
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="space-y-6">
-                            <img alt="Woman looking thoughtful" class="rounded-lg h-48 md:h-64 w-full object-cover" src="https://images.unsplash.com/photo-1519098901909-b1553a1190af?auto=format&fit=crop&q=80" />
-                            <img alt="Consultation" class="rounded-lg h-64 md:h-80 w-full object-cover grayscale" src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&q=80" />
-                        </div>
-                        <div class="pt-10 md:pt-16 space-y-6">
-                            <div class="bg-primary p-8 md:p-10 rounded-lg text-white">
-                                <p class="font-label text-[10px] mb-5">FOR WOMEN WHO WANT MORE</p>
-                                <img alt="Pregnant woman" class="rounded-lg h-24 md:h-32 w-full object-cover" src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?auto=format&fit=crop&q=80" />
-                            </div>
-                            <img alt="Woman in peaceful natural setting" class="rounded-lg h-48 md:h-64 w-full object-cover" src="https://images.unsplash.com/photo-1484665754804-74b091211472?auto=format&fit=crop&q=80" />
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section id="beta">
+            <h2>Beta Access Details</h2>
+            
+            <h3>What You Get</h3>
+            <ul>
+                <li>Free for your first 30 days</li>
+                <li>$25/month after</li>
+                <li>Cancel anytime</li>
+                <li>Limited beta cohort</li>
+                <li>Your feedback directly shapes the final release</li>
+            </ul>
+            
+            <h3>During Beta You Will:</h3>
+            <ol>
+                <li>Move through the protocol with algorithm runs that suggest next steps</li>
+                <li>Provide feedback on clarity and usability</li>
+                <li>Help refine sequencing and structure</li>
+            </ol>
+            <p>This beta is for women who want to think critically and be part of building something better.</p>
         </section>
 
-        <section class="py-16 md:py-24 bg-surface-dim">
-            <div class="max-w-7xl mx-auto px-6 md:px-12">
-                <div class="text-center max-w-3xl mx-auto mb-20 md:mb-24">
-                    <span class="font-label text-[10px] text-primary tracking-[0.2em] mb-6 block">FOUNDING MEMBER ACCESS</span>
-                    <h2 class="text-3xl md:text-4xl mb-6">Join the Waitlist. Get Early Everything.</h2>
-                    <p class="text-on-surface-variant text-base">This offer is reserved for early members only — and won't be available after launch.</p>
-                </div>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24 md:mb-32">
-                    <div class="bg-white p-8 rounded-lg editorial-shadow relative overflow-hidden group">
-                        <div class="w-14 h-14 bg-surface-accent rounded-lg mb-8 flex items-center justify-center">
-                            <span class="material-symbols-outlined text-primary text-2xl">sell</span>
-                        </div>
-                        <h4 class="font-bold text-base mb-4">50% Off — For the Life of Your Subscription</h4>
-                        <p class="text-xs text-on-surface-variant leading-relaxed">Lock in founding member pricing. Pay half the standard rate for as long as you're subscribed.</p>
-                        <div class="mt-6 text-[10px] font-bold text-primary">Most Valuable</div>
-                    </div>
-                    <div class="bg-primary p-8 rounded-lg text-white shadow-xl shadow-primary/20 relative overflow-hidden">
-                        <div class="w-14 h-14 bg-white/20 rounded-lg mb-8 flex items-center justify-center">
-                            <span class="material-symbols-outlined text-white text-2xl">bolt</span>
-                        </div>
-                        <h4 class="font-bold text-base mb-4">Priority Access at Launch</h4>
-                        <p class="text-xs opacity-90 leading-relaxed">Be the first to access the platform the moment it goes live — before the public waitlist opens.</p>
-                        <div class="mt-6 text-[10px] font-bold uppercase tracking-widest">Limited Spots</div>
-                    </div>
-                    <div class="bg-secondary p-8 rounded-lg text-white shadow-xl shadow-secondary/20 relative overflow-hidden">
-                        <div class="w-14 h-14 bg-white/20 rounded-lg mb-8 flex items-center justify-center">
-                            <span class="material-symbols-outlined text-white text-2xl">rocket_launch</span>
-                        </div>
-                        <h4 class="font-bold text-base mb-4">Early Onboarding</h4>
-                        <p class="text-xs opacity-90 leading-relaxed">Start using Wanted Fertility earlier than the standard release date announced.</p>
-                        <div class="mt-6 text-[10px] font-bold uppercase tracking-widest">Founding Members Only</div>
-                    </div>
-                    <div class="bg-white p-8 rounded-lg editorial-shadow relative overflow-hidden">
-                        <div class="w-14 h-14 bg-blue-50 rounded-lg mb-8 flex items-center justify-center">
-                            <span class="material-symbols-outlined text-secondary text-2xl">edit_square</span>
-                        </div>
-                        <h4 class="font-bold text-base mb-4">Shape the Product</h4>
-                        <p class="text-xs text-on-surface-variant leading-relaxed">Your feedback directly influences how the platform evolves. Be part of building something that helps women like you.</p>
-                        <div class="mt-6 text-[10px] font-bold text-secondary">Exclusive Access</div>
-                    </div>
-                </div>
-                
-                <div class="max-w-5xl mx-auto bg-primary rounded-xl p-8 md:p-14 lg:p-20 flex flex-col lg:flex-row gap-12 text-white items-center relative overflow-hidden">
-                    <div class="w-full lg:w-1/2 relative z-10 text-center lg:text-left">
-                        <span class="font-label text-[10px] text-white/70 mb-6 block">JOIN THE WAITLIST</span>
-                        <h2 class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight">If You Want More Clarity. Start Here.</h2>
-                        <p class="text-white/80 mb-12 max-w-sm mx-auto lg:mx-0 text-base">Receive 50% off your subscription for the life of your subscription when we launch.</p>
-                        <div class="flex justify-center lg:justify-start gap-10">
-                            <div class="text-center">
-                                <p class="text-3xl font-bold mb-2">50%</p>
-                                <p class="text-[10px] font-label opacity-60">off</p>
-                            </div>
-                            <div class="text-center">
-                                <span class="material-symbols-outlined mb-2 block text-3xl">history</span>
-                                <p class="text-[10px] font-label opacity-60">Early Access</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="w-full lg:w-1/2 z-10">
-                        <form class="bg-white p-8 md:p-10 rounded-lg space-y-6 text-on-surface w-full shadow-2xl">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                <div class="space-y-2">
-                                    <label class="font-label text-[10px] text-on-surface-variant">First Name</label>
-                                    <input class="w-full bg-surface-accent border-none rounded-lg p-3.5 text-sm focus:ring-1 focus:ring-primary" placeholder="First Name" type="text"/>
-                                </div>
-                                <div class="space-y-2">
-                                    <label class="font-label text-[10px] text-on-surface-variant">Last Name</label>
-                                    <input class="w-full bg-surface-accent border-none rounded-lg p-3.5 text-sm focus:ring-1 focus:ring-primary" placeholder="Last Name" type="text"/>
-                                </div>
-                            </div>
-                            <div class="space-y-2">
-                                <label class="font-label text-[10px] text-on-surface-variant">Email Address</label>
-                                <input class="w-full bg-surface-accent border-none rounded-lg p-3.5 text-sm focus:ring-1 focus:ring-primary" placeholder="Email Address" type="email"/>
-                            </div>
-                            <div class="space-y-2">
-                                <label class="font-label text-[10px] text-on-surface-variant">Your Age</label>
-                                <input class="w-full bg-surface-accent border-none rounded-lg p-3.5 text-sm focus:ring-1 focus:ring-primary" placeholder="34" type="number"/>
-                            </div>
-                            <button class="w-full bg-primary text-white font-label text-sm py-4 rounded-lg hover:bg-primary-dark transition-all flex items-center justify-center gap-2 mt-4" type="submit">
-                                Join the Waitlist →
-                            </button>
-                            <p class="text-center text-[9px] text-on-surface-variant opacity-60 mt-5">Free to join. No credit card required.</p>
-                        </form>
-                    </div>
-                    
-                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
-                </div>
-            </div>
+        <section id="important-info">
+            <h2>Important Information</h2>
+            <p>This app does not diagnose, treat, or replace medical care.</p>
+            <p>It is a structured information and decision-support tool.</p>
+            <p>Always consult with your healthcare provider regarding medical decisions.</p>
+            <p>My goal is not to replace your doctor.</p>
+            <p>It's to help you ask better questions and understand your fertility journey more clearly.</p>
         </section>
 
-        <section class="py-16 md:py-24 bg-surface-accent/20">
-            <div class="max-w-3xl mx-auto px-6 text-center space-y-8">
-                <span class="material-symbols-outlined text-on-surface text-4xl mb-4">lock</span>
-                <span class="font-label text-xs text-on-surface tracking-[0.2em] block">IMPORTANT INFORMATION</span>
-                <p class="text-base text-on-surface leading-relaxed italic">
-                    Wanted Fertility does not diagnose, treat, or replace medical care. It is a structured information and decision-support tool designed to help you better understand your fertility journey.
-                </p>
-                <p class="text-base font-bold text-on-surface">Always consult with your healthcare provider regarding medical decisions.</p>
-            </div>
-        </section>
-
-        <section class="py-24 md:py-32 bg-surface">
-            <div class="max-w-3xl mx-auto px-6 text-center">
-                <span class="font-label text-[10px] text-primary tracking-[0.2em] mb-6 block">THE TIME IS NOW</span>
-                <h2 class="text-4xl md:text-5xl mb-8">If You Want More Clarity. Start Here.</h2>
-                <p class="text-on-surface-variant text-base md:text-lg mb-12 max-w-xl mx-auto">Join women who are taking a structured, informed approach to their fertility journey.</p>
-                <button class="bg-primary text-white font-label text-xs px-12 py-5 rounded-full hover:scale-105 transition-transform shadow-xl shadow-primary/20 mb-8">Join the Waitlist</button>
-                <p class="text-xs text-on-surface-variant opacity-60">Receive 50% off your subscription for the life of your subscription when we launch.</p>
-            </div>
+        <section id="cta">
+            <h2>If You Want to Stay Involved in Your Fertility Journey, Start Here.</h2>
+            <button>Start Free Beta Access</button>
+            <p>Free for 30 days. $25/month after. Cancel anytime.</p>
         </section>
     </main>
 
-    <footer class="py-16 md:py-20 bg-primary text-white">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-            <div class="sm:col-span-2">
-                <h4 class="font-bold text-2xl mb-8">Wanted Fertility</h4>
-                <p class="text-base text-white/90 leading-relaxed max-w-sm mb-12">
-                    A protocol-based fertility decision-support app built by a woman who has been exactly where you are.
-                </p>
-                <p class="text-xs text-white font-label opacity-80">© 2024 Wanted Fertility. All rights reserved.</p>
-            </div>
-            <div>
-                <h5 class="font-label text-xs mb-8 tracking-widest underline underline-offset-8 decoration-white/30">NAVIGATE</h5>
-                <ul class="space-y-5 text-sm font-medium">
-                    <li><a class="text-white hover:text-white/80 transition-colors" href="#">Our Story</a></li>
-                    <li><a class="text-white hover:text-white/80 transition-colors" href="#">How It Works</a></li>
-                    <li><a class="text-white hover:text-white/80 transition-colors" href="#">Who It's For</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="font-label text-xs mb-8 tracking-widest underline underline-offset-8 decoration-white/30">LEGAL</h5>
-                <ul class="space-y-5 text-sm font-medium">
-                    <li><a class="text-white hover:text-white/80 transition-colors" href="#">Privacy Policy</a></li>
-                    <li><a class="text-white hover:text-white/80 transition-colors" href="#">Terms of Service</a></li>
-                    <li><a class="text-white hover:text-white/80 transition-colors" href="#">Medical Disclaimer</a></li>
-                </ul>
-            </div>
+    <footer>
+        <div>
+            <a href="/">Wanted Fertility</a>
+            <p>A structured information and decision-support tool designed to help you participate in your fertility journey with clarity and confidence.</p>
+        </div>
+        
+        <div>
+            <h4>Product</h4>
+            <ul>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#beta">Beta Access</a></li>
+                <li><a href="#">Pricing</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Medical Disclaimer</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <p>© 2026 Wanted Fertility. All rights reserved. This app does not diagnose, treat, or replace medical care.</p>
         </div>
     </footer>
-
 </body>
 </html>
