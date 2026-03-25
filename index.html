@@ -200,42 +200,22 @@
     .bento-center-title { font-size: 28px; font-weight: 700; color: #fff; line-height: 1.2; }
     .bento-center-desc { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; }
 
-    /* ════════════════════════════════════════
-       VALUE PROPS BANNER (Edge-to-Edge)
-    ════════════════════════════════════════ */
-    .value-props-banner {
-      background: #FFF5F8;
+    .bento-closing {
+      display: flex; align-items: center; justify-content: center; gap: 32px;
+      background: #4A85C6; border-radius: 20px; padding: 48px;
       width: 100%;
-      padding: 80px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 60px;
     }
-    .vpb-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .vpb-icon {
-      width: 32px;
-      height: 32px;
-      color: #FF6196;
-      flex-shrink: 0;
-    }
-    .vpb-text {
-      font-size: 22px;
-      font-weight: 700;
-      color: #1A1A2E;
-    }
+    .bento-closing-text { font-size: 22px; font-weight: 700; color: rgba(255,255,255,0.35); }
+    .bento-closing-sep { width: 4px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 2px; }
+    .bento-closing-accent { font-size: 22px; font-weight: 700; color: #FF6196; }
 
     /* ════════════════════════════════════════
        WHY THIS MATTERS
     ════════════════════════════════════════ */
-    .why-section { background: #FFF5F7; display: flex; flex-direction: column; }
+    .why-section { background: #FFF5F7; padding: 100px 80px; display: flex; flex-direction: column; }
     .why-header {
       display: flex; flex-direction: column; align-items: center; gap: 12px;
-      padding: 80px 160px 60px;
+      margin-bottom: 60px;
     }
     .why-label { background: #FF6196; color: #fff; }
     .why-h2 {
@@ -244,39 +224,50 @@
     }
     .why-sub { font-size: 18px; color: #666; line-height: 1.6; text-align: center; }
 
-    /* Timeline row */
-    .why-timeline {
-      display: grid; grid-template-columns: repeat(3, 1fr);
+    /* New 6-Grid Structure */
+    .why-content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr); /* 2 rows */
       gap: 60px;
-      max-width: 1440px;
+      width: 1280px; /* Aligns with Bento grid width */
       margin: 0 auto;
-      padding: 0 80px;
-      align-items: start;
+      padding: 0;
+    }
+    .why-grid-item {
+      border-radius: 8px;
+      overflow: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .grid-image .wc-img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     
-    .why-connector {
-      display: none;
+    .grid-text {
+      border: 1px solid #E8ECF2; /* Pale grey border like bento */
+      background-color: transparent; /* No background color */
+      padding: 30px;
+      justify-content: center; /* Center content block vertically */
+      align-items: flex-start; /* Internal content block is left aligned */
+      flex-direction: column; /* Content flows down */
     }
     
-    .wc-col {
-      display: flex; flex-direction: column;
-      position: relative;
+    .grid-text .wc-text {
+      margin: 0;
+      width: 100%; /* Make sure content block takes full width to allow internal formatting */
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left; /* Keep text left-aligned */
     }
 
-    .wc-text { display: flex; flex-direction: column; gap: 12px; }
     .wc-h { font-size: 17px; font-weight: 700; color: #1A1A2E; line-height: 1.3; }
     .wc-p { font-size: 14px; color: #666; line-height: 1.65; }
-    .wc-img {
-      width: 100%; height: 220px; border-radius: 8px; object-fit: cover; display: block;
-    }
-
-    .wc-layout-top .wc-text { margin-top: 0; margin-bottom: 24px; }
-    .wc-layout-top .wc-img { margin-top: 0; }
-    
-    .wc-layout-bottom { margin-top: 60px; }
-    .wc-layout-bottom .wc-img { margin-top: 0; margin-bottom: 24px; }
-    .wc-layout-bottom .wc-text { margin-top: 0; padding-bottom: 0; }
 
     .why-close {
       background: transparent;
@@ -581,12 +572,8 @@
 
       /* Why Section */
       .why-h2 { font-size: 34px; }
-      .why-timeline { display: flex; flex-direction: column; gap: 40px; min-height: auto; padding: 0 20px; }
-      .why-connector { display: none; }
-      .wc-col, .wc-col:first-child, .wc-col:last-child { padding: 0; }
-      .wc-layout-top .wc-text, .wc-layout-bottom .wc-text { margin-top: 0; margin-bottom: 12px; padding-bottom: 0; }
-      .wc-layout-top .wc-img, .wc-layout-bottom .wc-img { margin-top: 0; margin-bottom: 0; }
-      .wc-layout-bottom { margin-top: 0; } /* Reset stagger for mobile */
+      .why-content-grid { display: flex; flex-direction: column; gap: 20px; width: 100%; padding: 0 20px; }
+      .why-grid-item { min-height: 220px; }
       .why-close { padding: 60px 20px; }
       .why-close-p { font-size: 18px; }
 
@@ -623,7 +610,7 @@
 
 <nav class="navbar">
   <div class="nav-logo">
-    <img src="YOUR_LOGO_NAME.png" alt="Wanted Fertility" />
+    <img src="WF_Logo.png" alt="Wanted Fertility" />
   </div>
   <div class="nav-right">
     <a href="#" class="nav-link">Our Story</a>
@@ -655,7 +642,7 @@
   </div>
   <div class="hero-right">
     
-    <img class="hero-img" src="YOUR_HERO_IMAGE_NAME.jpg" alt="Founder" />
+    <img class="hero-img" src="andrea and nicole.jpg" alt="Founder" />
 
     <div class="hero-float-1">
       <div class="hero-float-icon">🌸</div>
@@ -769,32 +756,36 @@
     <p class="why-sub">Most women aren't lacking effort — they're lacking visibility.</p>
   </div>
 
-  <div class="why-timeline">
-    <div class="wc-col wc-layout-top">
+  <div class="why-content-grid">
+    <div class="why-grid-item grid-text">
       <div class="wc-text">
         <p class="wc-h">Information Lives Everywhere</p>
         <p class="wc-p">Lab results in one portal. Appointment notes in another. No single view of your complete picture.</p>
       </div>
+    </div>
+    <div class="why-grid-item grid-image">
       <img class="wc-img"
         src="https://images.unsplash.com/photo-1758273240799-6c2b0578fe2c?w=800&q=80"
         alt="Information fragmentation" />
     </div>
-
-    <div class="wc-col wc-layout-bottom">
+    <div class="why-grid-item grid-text">
+      <div class="wc-text">
+        <p class="wc-h">Critical Factors Get Missed</p>
+        <p class="wc-p">Small but significant variables can be overlooked when there's no structured framework guiding the process.</p>
+      </div>
+    </div>
+    <div class="why-grid-item grid-image">
       <img class="wc-img"
         src="https://images.unsplash.com/photo-1613298262171-8fb6107ff97b?w=800&q=80"
         alt="Appointments spaced out" />
+    </div>
+    <div class="why-grid-item grid-text">
       <div class="wc-text">
         <p class="wc-h">Appointments Are Spaced Out</p>
         <p class="wc-p">Decisions often get made without the full picture. Critical time passes between consultations. Details get lost.</p>
       </div>
     </div>
-
-    <div class="wc-col wc-layout-top">
-      <div class="wc-text">
-        <p class="wc-h">Critical Factors Get Missed</p>
-        <p class="wc-p">Small but significant variables can be overlooked when there's no structured framework guiding the process.</p>
-      </div>
+    <div class="why-grid-item grid-image">
       <img class="wc-img"
         src="https://images.unsplash.com/photo-1662869633285-13fe05236a72?w=800&q=80"
         alt="Critical factors missed" />
@@ -961,7 +952,7 @@
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo">
-        <img src="YOUR_LOGO_NAME.png" alt="Wanted Fertility" />
+        <img src="WF_Logo.png" alt="Wanted Fertility" />
       </div>
       <p class="footer-tagline">A protocol-based fertility decision-support app built by a woman who has been exactly where you are.</p>
       <span class="footer-copy">© 2025 Wanted Fertility. All rights reserved.</span>
