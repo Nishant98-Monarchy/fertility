@@ -19,7 +19,7 @@
     body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
     table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; }
     img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
-    body { margin: 0 !important; padding: 0 !important; width: 100% !important; height: 100% !important; background-color: #F4F0EA; }
+    body { margin: 0 !important; padding: 0 !important; width: 100% !important; height: 100% !important; background-color: #FFFFFF; }
     a { text-decoration: none; }
     p { margin: 0; padding: 0; }
 
@@ -72,6 +72,48 @@
       .text-mobile-pad { padding: 28px 24px !important; }
     }
 
+    /* ===== underline draw-in animation ===== */
+    @keyframes draw-underline {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+    .animated-underline {
+      position: relative;
+      display: inline-block;
+      color: #FF6196;
+    }
+    .animated-underline::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 2px;
+      height: 3.3px;
+      width: 0;
+      background-color: #FF6196;
+      border-radius: 2px;
+      animation: draw-underline 1s cubic-bezier(0.65, 0, 0.35, 1) 0.5s forwards;
+    }
+
+    /* ===== CTA hover animation ===== */
+    a.cta-button {
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.25s ease;
+    }
+    a.cta-button:hover,
+    a.cta-button:hover .cta-arrow {
+      background-color: #4A85C6 !important;
+      color: #FFFFFF !important;
+    }
+    a.cta-button:hover {
+      transform: translateY(-2px) scale(1.03);
+    }
+    .cta-arrow {
+      display: inline-block;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    a.cta-button:hover .cta-arrow {
+      transform: translateX(5px);
+    }
+
     /* ===== SMALL MOBILE (≤400px) ===== */
     @media screen and (max-width: 400px) {
       .header-pad { padding: 12px 16px !important; }
@@ -89,13 +131,13 @@
   </style>
 </head>
 
-<body style="margin:0; padding:0; background-color:#F4F0EA;">
+<body style="margin:0; padding:0; background-color:#FFFFFF;">
 
   <div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all; font-family:'Inter', Helvetica, Arial, sans-serif; color:#F4F0EA;">
     We just wanted to say welcome. Wanted Fertility is here to bring more structure and clarity to your journey. &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
   </div>
 
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FF6196" style="background-color:#FF6196;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="background-color:#FFFFFF;">
     <tr>
       <td align="center" style="padding:0;">
         <table role="presentation" align="center" class="container" width="720" cellpadding="0" cellspacing="0" border="0" style="width:720px; max-width:720px;">
@@ -103,31 +145,9 @@
             <td class="header-pad" style="padding:16px 32px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td align="left" valign="middle">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                      <tr>
-                        <td align="left" class="f-display mso-line-fix" style="font-family:'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:800; font-size:24px; line-height:1; letter-spacing:-0.7px; color:#FFFFFF;">
-                          wanted.
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" class="f-display mso-line-fix" style="font-family:'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:700; font-size:8px; line-height:1; letter-spacing:3.5px; color:#F8D2FB; padding-top:5px;">
-                          FERTILITY
-                        </td>
-                      </tr>
-                    </table>
+                  <td align="center" valign="middle">
+                    <img src="https://raw.githubusercontent.com/Nishant98-Monarchy/fertility/main/Wanted%20Fertility%20-%20Logo.png" alt="Wanted Fertility" style="display:block; height:36px; width:auto; border:0; margin:0 auto;" />
                   </td>
-                  <td align="right" valign="middle">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="right" class="header-cta">
-                      <tr>
-                        <td align="center" style="background-color:#FFFFFF; border-radius:100px; padding:0; mso-padding-alt:0;">
-                          <a href="https://wantedfertility.com" target="_blank" rel="noopener" style="display:block; padding:11px 26px; font-family:'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:700; font-size:12px; line-height:1.2; letter-spacing:0.4px; color:#FF6196; text-decoration:none; border-radius:100px; -webkit-border-radius:100px; -moz-border-radius:100px;">
-                            Get Started &nbsp;&rarr;
-                          </a>
-                        </td>
-                      </tr>
-                    </table>
-                    </td>
                 </tr>
               </table>
             </td>
@@ -137,69 +157,33 @@
     </tr>
   </table>
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F8D2FB" class="hero-bg" style="background-color:#F8D2FB; background-image:url('https://raw.githubusercontent.com/Nishant98-Monarchy/fertility/main/Frame%2085.png'); background-size:auto; background-repeat:no-repeat; background-position:center;">
+  <!-- Combined section: hero + body card + sign-off + CTA, with gradient ending at body card bottom -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="background-color:#FFFFFF; background-image:linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 60%, #FF6196 78%, #FF6196 100%);">
     <tr>
-      <td align="center" style="padding:0; position:relative; overflow:hidden;">
-
-        <!-- overlay to soften the ribbon -->
-        <div aria-hidden="true" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(248,210,251,0.6); pointer-events:none; z-index:0;"></div>
-
-<div style="position:relative; z-index:1;">
+      <td align="center" style="padding:0; background-image:linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 60%, #FF6196 78%, #FF6196 100%);">
         <table role="presentation" align="center" class="container" width="720" cellpadding="0" cellspacing="0" border="0" style="width:720px; max-width:720px;">
+
           <tr>
-
-            <td class="grid-col grid-col-left" valign="middle" align="left" style="width:50%; padding-top:64px; padding-right:36px; padding-bottom:64px; padding-left:48px;">
-
-              <h1 class="f-display h1-split mso-line-fix" style="margin:0 0 24px; font-family:'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:800; font-size:40px; line-height:1.1; letter-spacing:-1px; color:#FF6196;">
-                We're glad you're here.
+            <td valign="middle" align="center" style="padding:64px 48px 0;">
+              <h1 class="f-display h1-split mso-line-fix" style="margin:0 0 24px; font-family:'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:800; font-size:40px; line-height:1.1; letter-spacing:-1px; color:#1A1A2E; text-align:center;">
+                We're glad <span class="animated-underline">you're here.</span>
               </h1>
-
-              <p class="f-body body-fit mso-line-fix" style="margin:0 0 30px; font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:15.5px; line-height:1.65; color:#3A2A40;">
+              <p class="f-body body-fit mso-line-fix" style="margin:0; font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:15.5px; line-height:1.65; color:#3A2A40; text-align:center;">
                 We just wanted to say welcome. Starting a fertility journey, or continuing one, can feel overwhelming, especially when information is scattered across appointments, lab reports, and endless internet searches.
               </p>
-
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="left">
-                <tr>
-                  <td bgcolor="#FF6196" style="background-color:#FF6196; border-radius:999px;">
-                    <a href="https://wantedfertility.com" target="_blank" rel="noopener" style="display:inline-block; padding:16px 30px; font-family:'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:700; font-size:13.5px; line-height:1; letter-spacing:0.4px; color:#FFFFFF; text-decoration:none; border-radius:999px;">
-                      Complete your profile &nbsp;&rarr;
-                    </a>
-                  </td>
-                </tr>
-              </table>
-              </td>
-
-            <td class="grid-col grid-col-right" valign="middle" align="right" style="width:50%; padding-top:64px; padding-right:48px; padding-bottom:64px; padding-left:0;">
-              <img src="https://images.pexels.com/photos/9426607/pexels-photo-9426607.jpeg?auto=compress&cs=tinysrgb&w=900&h=720&fit=crop" alt="A mother holding her newborn baby" width="100%" class="hero-img" style="display:block; width:100%; max-width:312px; height:380px; object-fit:cover; object-position:center; border:0; outline:none; text-decoration:none; border-radius:24px;" />
-            </td>
-
-          </tr>
-        </table>
-        </div>
-      </td>
-    </tr>
-  </table>
-
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="background-color:#FFFFFF;">
-    <tr>
-      <td align="center" style="padding:0;">
-        <table role="presentation" align="center" class="container" width="720" cellpadding="0" cellspacing="0" border="0" style="width:720px; max-width:720px;">
-
-          <tr>
-            <td align="center" class="px-inner" style="padding:64px 56px 44px;">
-              <p class="f-display h2-fit mso-line-fix" style="margin:0; font-family:'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:700; font-size:26px; line-height:1.3; letter-spacing:-0.7px; color:#1A1A2E; text-align:center;">
-                Wanted Fertility was built to help bring more <span style="color:#FF6196;">structure</span> and <span style="color:#FF6196;">clarity</span> to that process.
-              </p>
             </td>
           </tr>
 
           <tr>
-            <td class="px-block" style="padding:0 32px 16px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="background-color:#FFFFFF; border:1.5px solid #F8D2FB; border-radius:24px; border-collapse:separate;">
+            <td class="px-block" style="padding:48px 32px 20px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF8F9" style="background-color:#FFF8F9; border-radius:24px; border-collapse:separate;">
                 <tr>
                   <td align="left" class="text-mobile-pad" style="padding:36px 40px;">
-                    <p class="f-body body-fit mso-line-fix" style="margin:0; font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:15.5px; line-height:1.7; color:#2A2A2A;">
-                      If you haven't already, take a few minutes to <strong style="color:#FF6196; font-weight:600;">complete your profile</strong> and cycle information inside the app. The more complete your information is, the more helpful the platform becomes.
+                    <p class="f-display mso-line-fix" style="margin:0 0 20px; font-family:'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:700; font-size:16.5px; line-height:1.3; letter-spacing:-0.3px; color:#1A1A2E; text-align:left;">
+                      Wanted Fertility was built to help bring more structure and clarity to that process.
+                    </p>
+                    <p class="f-body body-fit mso-line-fix" style="margin:0; font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:15.5px; line-height:1.7; color:#464646; text-align:left;">
+                      If you haven't already, take a few minutes to complete your profile and cycle information inside the app. The more complete your information is, the more helpful the platform becomes. And if you have any questions as you explore, our team is here to help.
                     </p>
                   </td>
                 </tr>
@@ -208,57 +192,30 @@
           </tr>
 
           <tr>
-            <td class="px-block" style="padding:0 32px 32px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="background-color:#FFFFFF; border:1.5px solid #F9A8AB; border-radius:24px; border-collapse:separate;">
-                <tr>
-                  <td align="left" class="text-mobile-pad" style="padding:36px 40px;">
-                    <p class="f-body body-fit mso-line-fix" style="margin:0; font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:15.5px; line-height:1.7; color:#2A2A2A;">
-                      And if you have <strong style="color:#FF6196; font-weight:600;">any questions</strong> as you explore, our team is here to help.
-                    </p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-        </table>
-      </td>
-    </tr>
-  </table>
-
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="background-color:#FFFFFF;">
-    <tr>
-      <td align="center" style="padding:0;">
-        <table role="presentation" align="center" class="container" width="720" cellpadding="0" cellspacing="0" border="0" style="width:720px; max-width:720px;">
-          <tr>
-            <td align="center" style="padding:32px 48px 16px;">
-              <img src="https://raw.githubusercontent.com/Nishant98-Monarchy/fertility/main/Nicole_image.jpg" alt="Nicole, founder of Wanted Fertility" style="display:block; width:200px; height:200px; object-fit:cover; object-position:top; border:0; outline:none; text-decoration:none; border-radius:24px;" />
-            </td>
-          </tr>
-          <tr>
-            <td align="center" style="padding:0 48px 32px;">
-              <p class="f-body body-fit mso-line-fix" style="margin:0 0 14px; font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:17px; line-height:1.7; color:#1A1A2E; text-align:center;">
-                We're really glad you're here.
+            <td align="center" style="padding:28px 48px 16px;">
+              <p class="f-display mso-line-fix" style="margin:0; font-family:'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:700; font-size:30px; line-height:1.2; letter-spacing:-0.7px; color:#FFFFFF; text-align:center;">
+                - Nicole
               </p>
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 14px;">
-                <tr>
-                  <td height="2" bgcolor="#F8D2FB" width="40" style="background-color:#F8D2FB; line-height:2px; font-size:0; border-radius:2px;">&nbsp;</td>
-                </tr>
-              </table>
-              <p class="f-display mso-line-fix" style="margin:0; font-family:'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:700; font-size:30px; line-height:1.2; letter-spacing:-0.7px; color:#FF6196; text-align:center;">
-                Nicole
-              </p>
-              <p class="f-body mso-line-fix" style="margin:6px 0 0; font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:14px; line-height:1.5; color:#6E6E6E; text-align:center;">
+              <p class="f-body mso-line-fix" style="margin:6px 0 0; font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:14px; line-height:1.5; color:#FFFFFF; text-align:center;">
                 &amp; The Wanted Fertility Team
               </p>
             </td>
           </tr>
+          <tr>
+            <td align="center" style="padding:32px 48px 80px; text-align:center;">
+              <a href="https://wantedfertility.com" target="_blank" rel="noopener" class="cta-button" style="display:inline-block; padding:16px 30px; background-color:#FFFFFF; font-family:'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:700; font-size:13.5px; line-height:1; letter-spacing:0.4px; color:#FF6196; text-decoration:none; border-radius:999px;">
+                Complete your profile &nbsp;<span class="cta-arrow">&rarr;</span>
+              </a>
+            </td>
+          </tr>
+
         </table>
       </td>
     </tr>
   </table>
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F4F0EA" class="dot-bg" style="background-color:#F4F0EA;">
+  <!-- footer -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="background-color:#FFFFFF;">
     <tr>
       <td align="center" style="padding:0;">
         <table role="presentation" align="center" class="container" width="720" cellpadding="0" cellspacing="0" border="0" style="width:720px; max-width:720px;">
